@@ -9,7 +9,8 @@
         "README.md",
         "main.blocks",
         "main.ts",
-        "tuto_1_jeu.md"
+        "tuto_1_jeu.md",
+        "tuto_2.md"
     ],
     "testFiles": [
         "test.ts"
