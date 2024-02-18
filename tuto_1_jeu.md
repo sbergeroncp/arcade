@@ -2,13 +2,13 @@
 
 ## @showdialog
 
-Crée un premier jeu vidéo.
+Crée un écran d'accueil pour un ton premier jeu.
 
 ## Étape 1
 
 Ajoute le bloc ``||scene:définir l'image d'arrière-plan||`` dans le bloc ``||loops:au démarrage||``.
 
-Choisis une image dans la gallerie.
+Choisis une image dans la galerie.
 
 ```blocks
 
