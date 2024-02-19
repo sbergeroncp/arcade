@@ -277,7 +277,7 @@ Ajoute le bloc ``||scene:démarrer effet sur l'écran||`` sous le bloc ``||game:
 
 Choisis un effet. 
 
-Appuie sur le bouton ``||scene:+||`` et modifie la valeur ``||scene:500ms||`` par ``||scene:2000ms||``.
+Appuie sur le bouton ``||scene:+||`` et modifie la valeur ``||scene:500 ms||`` par ``||scene:2000 ms||``.
 
 ```blocks
 

@@ -2,7 +2,7 @@
 
 ## @showdialog
 
-Crée un écran d'accueil pour un ton premier jeu.
+Programme le lutin pour qu'il se déplace sur l'écran.
 
 ## Étape 1
 
@@ -77,7 +77,7 @@ controller.moveSprite(mySprite)
 
 ## Étape 4
 
-Ajoute le bloc ``||animation:animer mySprite||`` sous le bloc ``||Sprites:définir mySprite||``.
+Ajoute le bloc ``||animation:animer mySprite||`` sous le bloc ``||scroller:déplacer avec les boutons||``.
 
 Assure-toi que les valeurs soient les suivantes :
 
