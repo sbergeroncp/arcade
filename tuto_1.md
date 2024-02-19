@@ -2,7 +2,7 @@
 
 ## @showdialog
 
-Crée un écran d'accueil pour un ton premier jeu.
+Crée un écran d'accueil pour un ton premier jeu vidéo!
 
 ## Étape 1
 
@@ -141,7 +141,7 @@ scene.setBackgroundImage(img`
 
 Ajoute le bloc ``||game:splash||`` sous le bloc ``||scene:définir l'image d'arrière-plan||``.
 
-Écris le nom du jeu dans le bloc ``||scene:splash||``. 
+Écris le nom du jeu dans le bloc ``||game:splash||``. 
 
 ```blocks
 
