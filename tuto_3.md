@@ -355,7 +355,7 @@ Remplace la valeur ``||info:10||`` par ``||info:3||``.
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
     info.changeScoreBy(1)
     mySprite2.setPosition(randint(scene.screenWidth(), 10), randint(0, scene.screenHeight()))
-    info.startCountdown(10)
+    info.startCountdown(3)
 })
 let mySprite2: Sprite = null
 scene.setBackgroundColor(9)
