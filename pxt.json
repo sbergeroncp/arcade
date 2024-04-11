@@ -10,14 +10,15 @@
         "main.blocks",
         "main.ts",
         "tuto_2.md",
-        "tuto_1.md"
+        "tuto_1.md",
+        "tuto_3.md"
     ],
     "testFiles": [
         "test.ts"
     ],
     "public": true,
     "targetVersions": {
-        "target": "1.12.47",
+        "target": "1.12.51",
         "targetId": "arcade"
     },
     "supportedTargets": [

@@ -2,7 +2,7 @@
 
 ## @showdialog
 
-Programme le lutin pour qu'il se déplace sur l'écran.
+Programme un personnage pour qu'il se déplace sur l'écran.
 
 ## Étape 1
 
@@ -79,7 +79,7 @@ controller.moveSprite(mySprite)
 
 Ajoute le bloc ``||animation:animer mySprite||`` sous le bloc ``||scroller:déplacer avec les boutons||``.
 
-Assure-toi que les valeurs soient les suivantes :
+Sélectionne les valeurs ci-dessous :
 
 ► ``||animation:animer||`` : ``||variables:mySprite||``
 
