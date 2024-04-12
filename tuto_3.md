@@ -236,7 +236,7 @@ let mySprite2 = sprites.create(img`
 
 ## Étape 7
 
-Ajoute le bloc ``||Sprites:définir la position||`` sous le bloc ``||info:modifier le score||``.
+Ajoute le bloc ``||Sprites:définir la position||`` (onglet ``||Sprites:Sprites)||`` sous le bloc ``||info:modifier le score||``.
 
 Remplace la valeur ``||variables:mySprite||`` par ``||variables:mySprite2||``.
 
