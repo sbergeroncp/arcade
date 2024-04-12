@@ -18,7 +18,7 @@ scene.setBackgroundColor(15)
 
 ## Étape 2
 
-Ajoute le bloc ``||Sprites:définir mySprite||`` (onglet Sprites) sous le bloc ``||scene:définir la couleur d'arrière-plan||``.
+Ajoute le bloc ``||variables:définir mySprite||`` (onglet ``||Sprites:Sprites||``) sous le bloc ``||scene:définir la couleur d'arrière-plan||``.
 
 Choisis un lutin dans la Galerie.
 
@@ -48,7 +48,7 @@ let mySprite = sprites.create(img`
 
 ## Étape 3
 
-Ajoute le bloc ``||scroller:déplacer avec les boutons||`` (onglet Contrôleur) sous le bloc ``||Sprites:définir mySprite||``.
+Ajoute le bloc ``||scroller:déplacer avec les boutons||`` (onglet ``||scroller:Contrôleur||``) sous le bloc ``||Sprites:définir mySprite||``.
 
 ```blocks
 

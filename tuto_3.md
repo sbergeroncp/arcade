@@ -19,7 +19,7 @@ scene.setBackgroundColor(9)
 
 ## Étape 2
 
-Ajoute le bloc ``||variables:définir mySprite||`` (onglet Sprites) sous le bloc ``||scene:définir la couleur d'arrière-plan||``.
+Ajoute le bloc ``||variables:définir mySprite||`` (onglet ``||Sprites:Sprites||``) sous le bloc ``||scene:définir la couleur d'arrière-plan||``.
 
 Clique sur le carré gris pour sélectionner un lutin dans la Galerie.
 
@@ -49,7 +49,7 @@ let mySprite = sprites.create(img`
 
 ## Étape 3
 
-Ajoute le bloc ``||scroller:déplacer avec les boutons||`` (onglet Contrôleur) sous le bloc ``||variables:définir mySprite||``.
+Ajoute le bloc ``||scroller:déplacer avec les boutons||`` (onglet ``||scroller:Contrôleur||``) sous le bloc ``||variables:définir mySprite||``.
 
 ```blocks
 
@@ -80,7 +80,7 @@ controller.moveSprite(mySprite)
 
 Ajoute le bloc ``||variables:définir mySprite||`` (onglet Sprites) sous le bloc ``||scroller:déplacer avec les boutons||``.
 
-Remplace la valeur ``||variables:définir mySprite||`` par ``||variables:définir mySprite2||``.
+Assure-toi que la valeur ``||variables:définir mySprite2||`` est sélectionnée.
 
 Remplace la valeur ``||Sprites:Player||`` par ``||Sprites:Food||``.
 
