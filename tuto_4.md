@@ -466,8 +466,7 @@ Choisis une animation et remplace la valeur ``||sprites:500||`` par ``||sprites:
 ```blocks
 
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    let projectile: Sprite = null
-    sprites.destroy(projectile, effects.spray, 100)
+    otherSprite.destroy(effects.ashes, 100)
 })
 
 ```
@@ -501,6 +500,260 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, ot
     otherSprite.destroy(effects.ashes, 100)
     music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.InBackground)
     info.changeScoreBy(1)
+})
+
+```
+
+## Étape 15
+
+Glisse le bloc ``||sprites:quand||`` (onglet ``||sprites:Sprites||``) dans la zone de programmation.
+
+Remplace la valeur ``||sprites:Player||`` de droite par ``||sprites:Enemy||``.
+
+
+```blocks
+
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+	
+})
+
+```
+
+## Étape 16
+
+Ajoute le bloc ``||sprites:destroy||`` (onglet ``||sprites:Sprites||``) dans le bloc ``||sprites:quand||``.
+
+Remplace la valeur ``||variables:mySprite||`` par ``||variables:projectile2||``.
+
+Appuie sur le bouton ``||sprites:+||`` pour afficher plus d'options.
+
+Choisis une animation et remplace la valeur ``||sprites:500||`` par ``||sprites:100||``
+
+
+```blocks
+
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    sprites.destroy(projectile2, effects.trail, 100)
+
+})
+
+```
+
+## Étape 17
+
+Ajoute le bloc ``||music:lire son||`` (onglet ``||music:Musique||``) sous le bloc ``||sprites:destroy||``.
+
+Choisis un son.
+
+Remplace la valeur ``||music:jusqu'à la fin||`` par ``||music:en arrière-plan||``
+
+```blocks
+
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    sprites.destroy(projectile2, effects.trail, 100)
+    music.play(music.melodyPlayable(music.pewPew), music.PlaybackMode.InBackground)
+})
+
+```
+
+## Étape 18
+
+Ajoute le bloc ``||info:modifier la vie||`` (onglet ``||info:Info||``) sous le bloc ``||music:lire son||``.
+
+La valeur ``||info:-1||`` demeure la même.
+
+```blocks
+
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    sprites.destroy(projectile2, effects.trail, 100)
+    music.play(music.melodyPlayable(music.pewPew), music.PlaybackMode.InBackground)
+    info.changeLifeBy(-1)
+})
+
+```
+
+## Étape 19
+
+Glisse le bloc ``||loops:toujours||`` (onglet ``||loops:Boucles||``) dans la zone de programmation.
+
+Ajoute trois blocs ``||sprites:rester à lécran||`` (onglet ``||sprites:Sprites||``) dans le bloc ``||loops:toujours||``.
+
+Remplace la valeur ``||variables:mySprite||`` du deuxième bloc par ``||variables:projectile||``.
+
+Remplace la valeur ``||variables:mySprite||`` du troisième bloc par ``||variables:projectile2||``.
+
+```blocks
+
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
+    otherSprite.destroy(effects.ashes, 100)
+    music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.InBackground)
+    info.changeScoreBy(1)
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    sprites.destroy(projectile2, effects.trail, 100)
+    music.play(music.melodyPlayable(music.pewPew), music.PlaybackMode.InBackground)
+    info.changeLifeBy(-1)
+})
+let projectile: Sprite = null
+let projectile2: Sprite = null
+scene.setBackgroundColor(8)
+let mySprite = sprites.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . c c c c . . . . 
+    . . . . . . c c d d d d c . . . 
+    . . . . . c c c c c c d c . . . 
+    . . . . c c 4 4 4 4 d c c . . . 
+    . . . c 4 d 4 4 4 4 4 1 c . c c 
+    . . c 4 4 4 1 4 4 4 4 d 1 c 4 c 
+    . c 4 4 4 4 1 4 4 4 4 4 1 c 4 c 
+    f 4 4 4 4 4 1 4 4 4 4 4 1 4 4 f 
+    f 4 4 4 f 4 1 c c 4 4 4 1 f 4 f 
+    f 4 4 4 4 4 1 4 4 f 4 4 d f 4 f 
+    . f 4 4 4 4 1 c 4 f 4 d f f f f 
+    . . f f 4 d 4 4 f f 4 c f c . . 
+    . . . . f f 4 4 4 4 c d b c . . 
+    . . . . . . f f f f d d d c . . 
+    . . . . . . . . . . c c c . . . 
+    `, SpriteKind.Player)
+controller.moveSprite(mySprite)
+info.setScore(0)
+game.onUpdateInterval(5000, function () {
+    projectile = sprites.createProjectileFromSide(img`
+        . . . . . . . . . . . 6 6 6 6 6 
+        . . . . . . . . . 6 6 7 7 7 7 8 
+        . . . . . . 8 8 8 7 7 8 8 6 8 8 
+        . . e e e e c 6 6 8 8 . 8 7 8 . 
+        . e 2 5 4 2 e c 8 . . . 6 7 8 . 
+        e 2 4 2 2 2 2 2 c . . . 6 7 8 . 
+        e 2 2 2 2 2 2 2 c . . . 8 6 8 . 
+        e 2 e e 2 2 2 2 e e e e c 6 8 . 
+        c 2 e e 2 2 2 2 e 2 5 4 2 c 8 . 
+        . c 2 e e e 2 e 2 4 2 2 2 2 c . 
+        . . c 2 2 2 e e 2 2 2 2 2 2 2 e 
+        . . . e c c e c 2 2 2 2 2 2 2 e 
+        . . . . . . . c 2 e e 2 2 e 2 c 
+        . . . . . . . c e e e e e e 2 c 
+        . . . . . . . . c e 2 2 2 2 c . 
+        . . . . . . . . . c c c c c . . 
+        `, randint(-50, 50), randint(-50, 50))
+    projectile2 = sprites.createProjectileFromSide(img`
+        .............ccfff..............
+        ...........ccddbcf..............
+        ..........ccddbbf...............
+        ..........fccbbcf...............
+        .....fffffccccccff.........ccc..
+        ...ffbbbbbbbcbbbbcfff....ccbbc..
+        ..fbbbbbbbbcbcbbbbcccff.cdbbc...
+        ffbbbbbbffbbcbcbbbcccccfcdbbf...
+        fbcbbb11ff1bcbbbbbcccccffbbf....
+        fbbb11111111bbbbbcccccccbbcf....
+        .fb11133cc11bbbbcccccccccccf....
+        ..fccc31c111bbbcccccbdbffbbcf...
+        ...fc13c111cbbbfcddddcc..fbbf...
+        ....fccc111fbdbbccdcc.....fbbf..
+        ........ccccfcdbbcc........fff..
+        .............fffff..............
+        `, randint(-50, 50), randint(-50, 50))
+    projectile2.setKind(SpriteKind.Enemy)
+})
+forever(function () {
+    mySprite.setStayInScreen(true)
+    projectile.setStayInScreen(true)
+    projectile2.setStayInScreen(true)
+
+})
+
+```
+
+## Étape 20
+
+Ajoute trois blocs ``||sprites:rebondir sur mur||`` (onglet ``||sprites:Sprites||``) sous le bloc ``||sprites:rester à lécran||``.
+
+Remplace la valeur ``||variables:mySprite||`` du deuxième bloc par ``||variables:projectile||``.
+
+Remplace la valeur ``||variables:mySprite||`` du troisième bloc par ``||variables:projectile2||``.
+
+```blocks
+
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
+    otherSprite.destroy(effects.ashes, 100)
+    music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.InBackground)
+    info.changeScoreBy(1)
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    sprites.destroy(projectile2, effects.trail, 100)
+    music.play(music.melodyPlayable(music.pewPew), music.PlaybackMode.InBackground)
+    info.changeLifeBy(-1)
+})
+let projectile: Sprite = null
+let projectile2: Sprite = null
+scene.setBackgroundColor(8)
+let mySprite = sprites.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . c c c c . . . . 
+    . . . . . . c c d d d d c . . . 
+    . . . . . c c c c c c d c . . . 
+    . . . . c c 4 4 4 4 d c c . . . 
+    . . . c 4 d 4 4 4 4 4 1 c . c c 
+    . . c 4 4 4 1 4 4 4 4 d 1 c 4 c 
+    . c 4 4 4 4 1 4 4 4 4 4 1 c 4 c 
+    f 4 4 4 4 4 1 4 4 4 4 4 1 4 4 f 
+    f 4 4 4 f 4 1 c c 4 4 4 1 f 4 f 
+    f 4 4 4 4 4 1 4 4 f 4 4 d f 4 f 
+    . f 4 4 4 4 1 c 4 f 4 d f f f f 
+    . . f f 4 d 4 4 f f 4 c f c . . 
+    . . . . f f 4 4 4 4 c d b c . . 
+    . . . . . . f f f f d d d c . . 
+    . . . . . . . . . . c c c . . . 
+    `, SpriteKind.Player)
+controller.moveSprite(mySprite)
+info.setScore(0)
+game.onUpdateInterval(5000, function () {
+    projectile = sprites.createProjectileFromSide(img`
+        . . . . . . . . . . . 6 6 6 6 6 
+        . . . . . . . . . 6 6 7 7 7 7 8 
+        . . . . . . 8 8 8 7 7 8 8 6 8 8 
+        . . e e e e c 6 6 8 8 . 8 7 8 . 
+        . e 2 5 4 2 e c 8 . . . 6 7 8 . 
+        e 2 4 2 2 2 2 2 c . . . 6 7 8 . 
+        e 2 2 2 2 2 2 2 c . . . 8 6 8 . 
+        e 2 e e 2 2 2 2 e e e e c 6 8 . 
+        c 2 e e 2 2 2 2 e 2 5 4 2 c 8 . 
+        . c 2 e e e 2 e 2 4 2 2 2 2 c . 
+        . . c 2 2 2 e e 2 2 2 2 2 2 2 e 
+        . . . e c c e c 2 2 2 2 2 2 2 e 
+        . . . . . . . c 2 e e 2 2 e 2 c 
+        . . . . . . . c e e e e e e 2 c 
+        . . . . . . . . c e 2 2 2 2 c . 
+        . . . . . . . . . c c c c c . . 
+        `, randint(-50, 50), randint(-50, 50))
+    projectile2 = sprites.createProjectileFromSide(img`
+        .............ccfff..............
+        ...........ccddbcf..............
+        ..........ccddbbf...............
+        ..........fccbbcf...............
+        .....fffffccccccff.........ccc..
+        ...ffbbbbbbbcbbbbcfff....ccbbc..
+        ..fbbbbbbbbcbcbbbbcccff.cdbbc...
+        ffbbbbbbffbbcbcbbbcccccfcdbbf...
+        fbcbbb11ff1bcbbbbbcccccffbbf....
+        fbbb11111111bbbbbcccccccbbcf....
+        .fb11133cc11bbbbcccccccccccf....
+        ..fccc31c111bbbcccccbdbffbbcf...
+        ...fc13c111cbbbfcddddcc..fbbf...
+        ....fccc111fbdbbccdcc.....fbbf..
+        ........ccccfcdbbcc........fff..
+        .............fffff..............
+        `, randint(-50, 50), randint(-50, 50))
+    projectile2.setKind(SpriteKind.Enemy)
+})
+forever(function () {
+    mySprite.setStayInScreen(true)
+    projectile.setStayInScreen(true)
+    projectile2.setStayInScreen(true)
+    mySprite.setBounceOnWall(true)
+    projectile.setBounceOnWall(true)
+    projectile2.setBounceOnWall(true)
 })
 
 ```
