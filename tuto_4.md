@@ -263,7 +263,7 @@ game.onUpdateInterval(5000, function () {
 
 Modifie les blocs ``||variables:définir projectile||`` et ``||variables:définir projectile2||``.
 
-Remplace les 4 valeurs ``||sprites:50||`` par les blocs ``||math:choisir aléatoirement entre||``.
+Remplace les 4 valeurs ``||sprites:50||`` par les blocs ``||math:sélection aléatoire||``.
 
 ```blocks
 
@@ -314,7 +314,7 @@ game.onUpdateInterval(5000, function () {
 
 ## Étape 10
 
-Modifie les blocs ``||math:choisir aléatoirement entre||``.
+Modifie les blocs ``||math:sélection aléatoire||``.
 
 Remplace les 4 valeurs ``||math:0||`` par ``||math:-50||``.
 
