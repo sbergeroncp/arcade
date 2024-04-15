@@ -458,7 +458,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherS
 
 Ajoute le bloc ``||sprites:destroy||`` (onglet ``||sprites:Sprites||``) dans le bloc ``||sprites:quand||``.
 
-Remplace la valeur ``||variables:mySprite||`` par ``||variables:projectile||``.
+Remplace la valeur ``||variables:mySprite||`` par ``||variables:otherSprite||``. Glisse celle du bloc ``||sprites:quand||``.
 
 Appuie sur le bouton ``||sprites:+||`` pour afficher plus d'options.
 
@@ -525,7 +525,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
 
 Ajoute le bloc ``||sprites:destroy||`` (onglet ``||sprites:Sprites||``) dans le bloc ``||sprites:quand||``.
 
-Remplace la valeur ``||variables:mySprite||`` par ``||variables:projectile2||``.
+Remplace la valeur ``||variables:mySprite||`` par ``||variables:otherSprite||``. Glisse celle du bloc ``||sprites:quand||``.
 
 Appuie sur le bouton ``||sprites:+||`` pour afficher plus d'options.
 
@@ -535,10 +535,7 @@ Choisis une animation et remplace la valeur ``||sprites:500||`` par ``||sprites:
 ```blocks
 
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    sprites.destroy(projectile2, effects.trail, 100)
-
-})
-
+    sprites.destroy(otherSprite, effects.trail, 100)
 ```
 
 ## Étape 17
@@ -552,9 +549,8 @@ Remplace la valeur ``||music:jusqu'à la fin||`` par ``||music:en arrière-plan|
 ```blocks
 
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    sprites.destroy(projectile2, effects.trail, 100)
+    sprites.destroy(otherSprite, effects.trail, 100)
     music.play(music.melodyPlayable(music.pewPew), music.PlaybackMode.InBackground)
-})
 
 ```
 
@@ -567,10 +563,9 @@ La valeur ``||info:-1||`` demeure la même.
 ```blocks
 
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    sprites.destroy(projectile2, effects.trail, 100)
+    sprites.destroy(otherSprite, effects.trail, 100)
     music.play(music.melodyPlayable(music.pewPew), music.PlaybackMode.InBackground)
     info.changeLifeBy(-1)
-})
 
 ```
 
@@ -592,12 +587,12 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, ot
     info.changeScoreBy(1)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    sprites.destroy(projectile2, effects.trail, 100)
+    sprites.destroy(otherSprite, effects.trail, 100)
     music.play(music.melodyPlayable(music.pewPew), music.PlaybackMode.InBackground)
     info.changeLifeBy(-1)
 })
-let projectile: Sprite = null
 let projectile2: Sprite = null
+let projectile: Sprite = null
 scene.setBackgroundColor(8)
 let mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
@@ -662,7 +657,6 @@ forever(function () {
     mySprite.setStayInScreen(true)
     projectile.setStayInScreen(true)
     projectile2.setStayInScreen(true)
-
 })
 
 ```
@@ -683,12 +677,12 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, ot
     info.changeScoreBy(1)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    sprites.destroy(projectile2, effects.trail, 100)
+    sprites.destroy(otherSprite, effects.trail, 100)
     music.play(music.melodyPlayable(music.pewPew), music.PlaybackMode.InBackground)
     info.changeLifeBy(-1)
 })
-let projectile: Sprite = null
 let projectile2: Sprite = null
+let projectile: Sprite = null
 scene.setBackgroundColor(8)
 let mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
@@ -757,5 +751,6 @@ forever(function () {
     projectile.setBounceOnWall(true)
     projectile2.setBounceOnWall(true)
 })
+
 
 ```
