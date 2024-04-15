@@ -263,7 +263,7 @@ game.onUpdateInterval(5000, function () {
 
 Modifie les blocs ``||variables:définir projectile||`` et ``||variables:définir projectile2||``.
 
-Remplace les valeurs ``||math:50||`` et ``||math:50||`` par les blocs ``||math:choisir aléatoirement entre||``.
+Remplace les 4 valeurs ``||sprites:50||`` par les blocs ``||math:choisir aléatoirement entre||``.
 
 ```blocks
 
@@ -309,62 +309,64 @@ game.onUpdateInterval(5000, function () {
     projectile2.setKind(SpriteKind.Enemy)
 })
 
-
-```
-
-## Étape 9
-
-Modifie les blocs ``||math:choisir aléatoirement entre||``.
-
-Remplace les valeurs ``||math:0||`` et ``||math:10||`` par les valeurs ``||math:-50||`` et ``||math:50||``.
-
-```blocks
-
-let projectile: Sprite = null
-let projectile2: Sprite = null
-game.onUpdateInterval(5000, function () {
-    projectile = sprites.createProjectileFromSide(img`
-        . . . . . . . . . . . 6 6 6 6 6 
-        . . . . . . . . . 6 6 7 7 7 7 8 
-        . . . . . . 8 8 8 7 7 8 8 6 8 8 
-        . . e e e e c 6 6 8 8 . 8 7 8 . 
-        . e 2 5 4 2 e c 8 . . . 6 7 8 . 
-        e 2 4 2 2 2 2 2 c . . . 6 7 8 . 
-        e 2 2 2 2 2 2 2 c . . . 8 6 8 . 
-        e 2 e e 2 2 2 2 e e e e c 6 8 . 
-        c 2 e e 2 2 2 2 e 2 5 4 2 c 8 . 
-        . c 2 e e e 2 e 2 4 2 2 2 2 c . 
-        . . c 2 2 2 e e 2 2 2 2 2 2 2 e 
-        . . . e c c e c 2 2 2 2 2 2 2 e 
-        . . . . . . . c 2 e e 2 2 e 2 c 
-        . . . . . . . c e e e e e e 2 c 
-        . . . . . . . . c e 2 2 2 2 c . 
-        . . . . . . . . . c c c c c . . 
-        `, randint(-50, 50), randint(-50, 50))
-    projectile2 = sprites.createProjectileFromSide(img`
-        .............ccfff..............
-        ...........ccddbcf..............
-        ..........ccddbbf...............
-        ..........fccbbcf...............
-        .....fffffccccccff.........ccc..
-        ...ffbbbbbbbcbbbbcfff....ccbbc..
-        ..fbbbbbbbbcbcbbbbcccff.cdbbc...
-        ffbbbbbbffbbcbcbbbcccccfcdbbf...
-        fbcbbb11ff1bcbbbbbcccccffbbf....
-        fbbb11111111bbbbbcccccccbbcf....
-        .fb11133cc11bbbbcccccccccccf....
-        ..fccc31c111bbbcccccbdbffbbcf...
-        ...fc13c111cbbbfcddddcc..fbbf...
-        ....fccc111fbdbbccdcc.....fbbf..
-        ........ccccfcdbbcc........fff..
-        .............fffff..............
-        `, randint(-50, 50), randint(-50, 50))
-    projectile2.setKind(SpriteKind.Enemy)
-})
 
 ```
 
 ## Étape 10
+
+Modifie les blocs ``||math:choisir aléatoirement entre||``.
+
+Remplace les 4 valeurs ``||math:0||`` par ``||math:-50||``.
+
+Remplace les 4 valeurs ``||math:10||`` par ``||math:50||``.
+
+```blocks
+
+let projectile: Sprite = null
+let projectile2: Sprite = null
+game.onUpdateInterval(5000, function () {
+    projectile = sprites.createProjectileFromSide(img`
+        . . . . . . . . . . . 6 6 6 6 6 
+        . . . . . . . . . 6 6 7 7 7 7 8 
+        . . . . . . 8 8 8 7 7 8 8 6 8 8 
+        . . e e e e c 6 6 8 8 . 8 7 8 . 
+        . e 2 5 4 2 e c 8 . . . 6 7 8 . 
+        e 2 4 2 2 2 2 2 c . . . 6 7 8 . 
+        e 2 2 2 2 2 2 2 c . . . 8 6 8 . 
+        e 2 e e 2 2 2 2 e e e e c 6 8 . 
+        c 2 e e 2 2 2 2 e 2 5 4 2 c 8 . 
+        . c 2 e e e 2 e 2 4 2 2 2 2 c . 
+        . . c 2 2 2 e e 2 2 2 2 2 2 2 e 
+        . . . e c c e c 2 2 2 2 2 2 2 e 
+        . . . . . . . c 2 e e 2 2 e 2 c 
+        . . . . . . . c e e e e e e 2 c 
+        . . . . . . . . c e 2 2 2 2 c . 
+        . . . . . . . . . c c c c c . . 
+        `, randint(-50, 50), randint(-50, 50))
+    projectile2 = sprites.createProjectileFromSide(img`
+        .............ccfff..............
+        ...........ccddbcf..............
+        ..........ccddbbf...............
+        ..........fccbbcf...............
+        .....fffffccccccff.........ccc..
+        ...ffbbbbbbbcbbbbcfff....ccbbc..
+        ..fbbbbbbbbcbcbbbbcccff.cdbbc...
+        ffbbbbbbffbbcbcbbbcccccfcdbbf...
+        fbcbbb11ff1bcbbbbbcccccffbbf....
+        fbbb11111111bbbbbcccccccbbcf....
+        .fb11133cc11bbbbcccccccccccf....
+        ..fccc31c111bbbcccccbdbffbbcf...
+        ...fc13c111cbbbfcddddcc..fbbf...
+        ....fccc111fbdbbccdcc.....fbbf..
+        ........ccccfcdbbcc........fff..
+        .............fffff..............
+        `, randint(-50, 50), randint(-50, 50))
+    projectile2.setKind(SpriteKind.Enemy)
+})
+
+```
+
+## Étape 11
 
 Voici la programmeation jusqu'à maintenant.
 
