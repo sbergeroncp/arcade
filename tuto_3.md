@@ -1,8 +1,8 @@
-# Tuto_1
+# Tutoriel 3
 
 ## @showdialog
 
-Programme deux personnages pour qu'ils interagissent à l'écran­.
+Programme deux lutins pour qu'ils interagissent à l'écran­.
 
 ## Étape 1
 

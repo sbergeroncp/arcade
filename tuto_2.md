@@ -1,8 +1,8 @@
-# Tuto_1
+# Tutoriel 2
 
 ## @showdialog
 
-Programme un personnage pour qu'il se déplace sur l'écran.
+Programme un lutin pour qu'il se déplace sur l'écran.
 
 ## Étape 1
 
