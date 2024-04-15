@@ -77,17 +77,17 @@ controller.moveSprite(mySprite)
 
 ## Étape 4
 
-Ajoute le bloc ``||animation:animer mySprite||`` sous le bloc ``||scroller:déplacer avec les boutons||``.
+Ajoute le bloc ``||animation:animer mySprite||`` (onglet ``||animation:Animation||`` dans Avancé)sous le bloc ``||scroller:déplacer avec les boutons||``.
 
 Sélectionne les valeurs ci-dessous :
 
 ► ``||animation:animer||`` : ``||variables:mySprite||``
 
-► ``||animation:trames||`` : appuie sur le carré vide pour ajouter une ressource et sélectionne l'animation correspondante à ton lutin dans l'onglet Galerie
+► ``||animation:trames||`` : appuie sur le carré vide pour ajouter une ressource et sélectionne l'animation correspondant à ton lutin dans l'onglet Galerie
 
 ► ``||animation:intervalle (ms)||`` : 500 
 
-► ``||animation:en boucle||`` : ON
+► ``||animation:en boucle||`` : activé
 
 ```blocks
 

@@ -290,7 +290,7 @@ mySprite2 = sprites.create(img`
 
 ## Étape 8
 
-Remplace les valeurs ``||Sprites:0||`` du bloc ``||Sprites:définir la position||`` par les blocs ``||math:choisir aléatoirement entre||``.
+Remplace les valeurs ``||Sprites:0||`` du bloc ``||Sprites:définir la position||`` par les blocs ``||math:sélection aléatoire||``.
 
 ```blocks
 
@@ -343,9 +343,9 @@ mySprite2 = sprites.create(img`
 
 ## Étape 9
 
-Modifie le bloc ``||math:choisir aléatoirement entre||`` pour la valeur ``||Sprites:x||``:
+Modifie le bloc ``||math:sélection aléatoire||`` pour la valeur ``||Sprites:x||``:
 
-Remplace la valeur ``||math:0||`` de gauche du bloc ``||math:choisir aléatoirement entre||`` par le bloc ``||scene:largeur de l'écran||``.
+Remplace la valeur ``||math:0||`` de gauche du bloc ``||math:sélection aléatoire||`` par le bloc ``||scene:largeur de l'écran||``.
 
 Regarde bien l'indice !
 
@@ -399,9 +399,9 @@ mySprite2 = sprites.create(img`
 
 ## Étape 10
 
-Modifie le bloc ``||math:choisir aléatoirement entre||`` pour la valeur ``||Sprites:y||``.
+Modifie le bloc ``||math:sélection aléatoire||`` pour la valeur ``||Sprites:y||``.
 
-Remplace la valeur ``||math:0||`` de droite du bloc ``||math:choisir aléatoirement entre||`` par le bloc ``||scene:hauteur de l'écran||``.
+Remplace la valeur ``||math:0||`` de droite du bloc ``||math:sélection aléatoire||`` par le bloc ``||scene:hauteur de l'écran||``.
 
 Regarde bien l'indice.
 
