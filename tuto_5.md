@@ -1643,7 +1643,7 @@ Remplace la valeur ``||music:da bing||`` par ``||music:spooky||``
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     sprites.destroy(otherSprite, effects.hearts, 500)
     scene.cameraShake(4, 500)
-    music.play(music.melodyPlayable(music.spooky), music.PlaybackMode.UntilDone)
+    music.play(music.melodyPlayable(music.spooky), music.PlaybackMode.InBackground)
 })
 
 ```
