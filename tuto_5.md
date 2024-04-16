@@ -557,12 +557,12 @@ music.setVolume(255)
 
 Glisse le bloc ``||game:quand mise à jour||`` (onglet ``||game:Jeu||``) dans la zone de programmation.
 
-Modifie la valeur ``||game:500||`` par ``||game:1000||``.
+Modifie la valeur ``||game:500||`` par ``||game:2000||``.
 
 
 ```blocks
 
-game.onUpdateInterval(1000, function () {
+game.onUpdateInterval(2000, function () {
 	
 })
     
@@ -580,7 +580,7 @@ Clique sur le carré gris pour sélectionner un lutin dans la Galerie.
 
 ```blocks
 
-game.onUpdateInterval(1000, function () {
+game.onUpdateInterval(2000, function () {
     mySprite2 = sprites.create(img`
         ........................
         ........................
@@ -626,7 +626,7 @@ Sélectionne les valeurs ci-dessous :
 
 ```blocks
 
-game.onUpdateInterval(1000, function () {
+game.onUpdateInterval(2000, function () {
     mySprite2 = sprites.create(img`
         ........................
         ........................
@@ -824,7 +824,7 @@ Modifie la valeur ``||variables:mySprite||`` pour ``||variables:mySprite2||``.
 
 Remplace la valeur ``||Sprites:0||`` de gauche par ``||Sprites:150||``.
 
-Remplace la valeur ``||Sprites:0||`` de droite par le bloc ``||maths:sélection aléatoire||``.
+Remplace la valeur ``||Sprites:0||`` de droite par le bloc ``||math:sélection aléatoire||``.
 
 ```blocks
 
@@ -920,11 +920,11 @@ game.onUpdateInterval(2000, function () {
 
 ## Étape 14
 
-Modifie le bloc ``||maths:sélection aléatoire||``.
+Modifie le bloc ``||math:sélection aléatoire||``.
 
-Remplace la valeur ``||maths:0||`` par ``||maths:5||``.
+Remplace la valeur ``||math:0||`` par ``||math:5||``.
 
-Remplace la valeur ``||maths:10||`` par ``||maths:110||``.
+Remplace la valeur ``||math:10||`` par ``||math:110||``.
 
 ```blocks
 
@@ -1020,7 +1020,7 @@ game.onUpdateInterval(2000, function () {
 
 ## Étape 14
 
-Ajoute le bloc ``||sprites:destruction automatique||`` (onglet ``||Sprites:Sprites||``) sous le bloc ``||sprites:définir la position||``.
+Ajoute le bloc ``||sprites:définir destruction automatique||`` (onglet ``||Sprites:Sprites||``) sous le bloc ``||sprites:définir la position||``.
 
 Modifie la valeur ``||variables:mySprite||`` pour ``||variables:mySprite2||``.
 
@@ -1224,9 +1224,9 @@ Glisse le bloc ``||scroller:quand le bouton A est appuyé ||`` (onglet ``||scrol
 
 Ajoute le bloc ``||variables:définir projectile||`` (onglet ``||Sprites:Sprites||``) dans le bloc ``||scroller:quand le bouton A est appuyé ||``.
 
-Assure-toi que la valeur à gauche ``||variables:définir projectile||`` est sélectionnée.
+Assure-toi que la valeur de gauche ``||variables:définir projectile||`` est sélectionnée.
 
-Assure-toi que la valeur à droite ``||variables:mySprite||`` est sélectionnée.
+Assure-toi que la valeur de droite ``||variables:mySprite||`` est sélectionnée.
 
 Clique sur le carré gris pour sélectionner un lutin dans la Galerie.
 
@@ -1548,9 +1548,9 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, oth
 
 Ajoute le bloc ``||music:play jusqu'à la fin||`` (onglet ``||music:Musique||``) sous le bloc ``||sprites:destroy||``.
 
-Remplace la valeur ``||music:jusqu'à la fin||`` par ``||music:en arrière-plan||``
+Remplace la valeur ``||music:jusqu'à la fin||`` par ``||music:in background||``.
 
-Remplace la valeur ``||music:da bing||`` par ``||music:pew pew||``
+Remplace la valeur ``||music:da bing||`` par ``||music:pew pew||``.
 
 ```blocks
 
@@ -1617,9 +1617,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
 
 Ajoute le bloc ``||scene:secouer la caméra||`` (onglet ``||scene:Scène||``) sous le bloc ``||sprites:destroy||``.
 
-Glisse le bloc ``||variables:otherSprite||`` dans le bloc ``||variables:mySprite||`` pour remplacer la valeur.
-
-Les valeurs ``||scene:4||`` et ``||scene:5||`` demeurent les mêmes.
+Les valeurs ``||scene:4||`` et ``||scene:500||`` demeurent les mêmes.
 
 ```blocks
 
@@ -1634,9 +1632,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
 
 Ajoute le bloc ``||music:play jusqu'à la fin||`` (onglet ``||music:Musique||``) sous le bloc ``||scene:secouer la caméra||``.
 
-Remplace la valeur ``||music:jusqu'à la fin||`` par ``||music:en arrière-plan||``
+Remplace la valeur ``||music:jusqu'à la fin||`` par ``||music:in background||``.
 
-Remplace la valeur ``||music:da bing||`` par ``||music:spooky||``
+Remplace la valeur ``||music:da bing||`` par ``||music:spooky||``.
 
 ```blocks
 
@@ -1656,10 +1654,10 @@ La valeur ``||info:-1||`` demeure la même.
 
 ```blocks
 
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
-    sprites.destroy(otherSprite, effects.fire, 500)
-    music.play(music.melodyPlayable(music.pewPew), music.PlaybackMode.InBackground)
-    info.changeScoreBy(1)
-})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite, effects.hearts, 500)
+    scene.cameraShake(4, 500)
+    music.play(music.melodyPlayable(music.spooky), music.PlaybackMode.UntilDone)
+    info.changeLifeBy(-1)
 
 ```
