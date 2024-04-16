@@ -439,7 +439,7 @@ game.onUpdateInterval(5000, function () {
 
 ```
 
-## Étape 11
+## Étape 12
 
 Glisse le bloc ``||sprites:quand||`` (onglet ``||sprites:Sprites||``) dans la zone de programmation.
 
@@ -454,7 +454,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherS
 
 ```
 
-## Étape 12
+## Étape 13
 
 Ajoute le bloc ``||sprites:destroy||`` (onglet ``||sprites:Sprites||``) dans le bloc ``||sprites:quand||``.
 
@@ -473,7 +473,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, ot
 
 ```
 
-## Étape 13
+## Étape 14
 
 Ajoute le bloc ``||music:lire son||`` (onglet ``||music:Musique||``) sous le bloc ``||sprites:destroy||``.
 
@@ -490,7 +490,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, ot
 
 ```
 
-## Étape 14
+## Étape 15
 
 Ajoute le bloc ``||info:modifier le score||`` (onglet ``||info:Info||``) sous le bloc ``||music:lire son||``.
 
@@ -506,7 +506,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, ot
 
 ```
 
-## Étape 15
+## Étape 16
 
 Glisse le bloc ``||sprites:quand||`` (onglet ``||sprites:Sprites||``) dans la zone de programmation.
 
@@ -521,7 +521,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
 
 ```
 
-## Étape 16
+## Étape 17
 
 Ajoute le bloc ``||sprites:destroy||`` (onglet ``||sprites:Sprites||``) dans le bloc ``||sprites:quand||``.
 
@@ -538,7 +538,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     sprites.destroy(otherSprite, effects.trail, 100)
 ```
 
-## Étape 17
+## Étape 18
 
 Ajoute le bloc ``||music:lire son||`` (onglet ``||music:Musique||``) sous le bloc ``||sprites:destroy||``.
 
@@ -554,7 +554,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
 
 ```
 
-## Étape 18
+## Étape 19
 
 Ajoute le bloc ``||info:modifier la vie||`` (onglet ``||info:Info||``) sous le bloc ``||music:lire son||``.
 
@@ -569,7 +569,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
 
 ```
 
-## Étape 19
+## Étape 20
 
 Glisse le bloc ``||loops:toujours||`` (onglet ``||loops:Boucles||``) dans la zone de programmation.
 
@@ -661,7 +661,7 @@ forever(function () {
 
 ```
 
-## Étape 20
+## Étape 21
 
 Ajoute trois blocs ``||sprites:rebondir sur mur||`` (onglet ``||sprites:Sprites||``) sous le bloc ``||sprites:rester à lécran||``.
 
