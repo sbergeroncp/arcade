@@ -1543,3 +1543,123 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, oth
 })
 
 ```
+
+## Étape 21
+
+Ajoute le bloc ``||music:play jusqu'à la fin||`` (onglet ``||music:Musique||``) sous le bloc ``||sprites:destroy||``.
+
+Remplace la valeur ``||music:jusqu'à la fin||`` par ``||music:en arrière-plan||``
+
+Remplace la valeur ``||music:da bing||`` par ``||music:pew pew||``
+
+```blocks
+
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite, effects.fire, 500)
+    music.play(music.melodyPlayable(music.pewPew), music.PlaybackMode.InBackground)
+})
+
+```
+
+## Étape 22
+
+Ajoute le bloc ``||info:modifier le score||`` (onglet ``||info:Info||``) sous le bloc ``||music:play jusqu'à la fin||``.
+
+La valeur ``||info:1||`` demeure la même.
+
+```blocks
+
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite, effects.fire, 500)
+    music.play(music.melodyPlayable(music.pewPew), music.PlaybackMode.InBackground)
+    info.changeScoreBy(1)
+})
+
+```
+
+## Étape 23
+
+Glisse le bloc ``||sprites:quand||`` (onglet ``||sprites:Sprites||``) dans la zone de programmation.
+
+La valeur ``||sprites:Player||`` de gauche demeure la même.
+
+Remplace la valeur ``||sprites:Player||`` de droite par ``||sprites:Enemy||``.
+
+```blocks
+
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+	
+})
+
+```
+
+## Étape 24
+
+Ajoute le bloc ``||sprites:destroy||`` (onglet ``||sprites:Sprites||``) dans le bloc ``||sprites:quand||``.
+
+Glisse le bloc ``||variables:otherSprite||`` dans le bloc ``||variables:mySprite||`` pour remplacer la valeur.
+
+Appuie sur le bouton ``||sprites:+||`` pour afficher plus d'options.
+
+Remplace les valeurs ``||sprites:spray||`` par ``||sprites:coeurs||``.
+
+La valeur ``||sprites:500||`` demeure la même.
+
+```blocks
+
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite, effects.hearts, 500)
+})
+
+```
+
+## Étape 25
+
+Ajoute le bloc ``||scene:secouer la caméra||`` (onglet ``||scene:Scène||``) sous le bloc ``||sprites:destroy||``.
+
+Glisse le bloc ``||variables:otherSprite||`` dans le bloc ``||variables:mySprite||`` pour remplacer la valeur.
+
+Les valeurs ``||scene:4||`` et ``||scene:5||`` demeurent les mêmes.
+
+```blocks
+
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite, effects.hearts, 500)
+    scene.cameraShake(4, 500)
+})
+
+```
+
+## Étape 26
+
+Ajoute le bloc ``||music:play jusqu'à la fin||`` (onglet ``||music:Musique||``) sous le bloc ``||scene:secouer la caméra||``.
+
+Remplace la valeur ``||music:jusqu'à la fin||`` par ``||music:en arrière-plan||``
+
+Remplace la valeur ``||music:da bing||`` par ``||music:spooky||``
+
+```blocks
+
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite, effects.hearts, 500)
+    scene.cameraShake(4, 500)
+    music.play(music.melodyPlayable(music.spooky), music.PlaybackMode.UntilDone)
+})
+
+```
+
+## Étape 27
+
+Ajoute le bloc ``||info:modifier vie||`` (onglet ``||info:Info||``) sous le bloc ``||music:play jusqu'à la fin||``.
+
+La valeur ``||info:-1||`` demeure la même.
+
+```blocks
+
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite, effects.fire, 500)
+    music.play(music.melodyPlayable(music.pewPew), music.PlaybackMode.InBackground)
+    info.changeScoreBy(1)
+})
+
+```
