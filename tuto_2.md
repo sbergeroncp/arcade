@@ -77,7 +77,7 @@ controller.moveSprite(mySprite)
 
 ## Étape 4
 
-Ajoute le bloc ``||animation:animer mySprite||`` (onglet ``||animation:Animation||`` dans Avancé)sous le bloc ``||scroller:déplacer avec les boutons||``.
+Ajoute le bloc ``||animation:animer mySprite||`` (onglet ``||animation:Animation||`` dans Avancé) sous le bloc ``||scroller:déplacer avec les boutons||``.
 
 Sélectionne les valeurs ci-dessous :
 
