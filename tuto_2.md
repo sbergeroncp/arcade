@@ -6,7 +6,7 @@ Programme un lutin pour qu'il se déplace sur l'écran.
 
 ## Étape 1
 
-Ajoute le bloc ``||scene:définir la couleur d'arrière-plan||`` dans le bloc ``||loops:au démarrage||``.
+Ajoute le bloc ``||scene:définir la couleur d'arrière-plan||`` (onglet ``||scene:Scène||``) dans le bloc ``||loops:au démarrage||``.
 
 Choisis une couleur.
 

@@ -6,7 +6,7 @@ Programme deux lutins pour qu'ils interagissent à l'écran­.
 
 ## Étape 1
 
-Ajoute le bloc ``||scene:définir la couleur d'arrière-plan||`` dans le bloc ``||loops:au démarrage||``.
+Ajoute le bloc ``||scene:définir la couleur d'arrière-plan||`` (onglet ``||scene:Scène||``) dans le bloc ``||loops:au démarrage||``.
 
 Choisis une couleur.
 
@@ -290,7 +290,7 @@ mySprite2 = sprites.create(img`
 
 ## Étape 8
 
-Remplace les valeurs ``||Sprites:0||`` du bloc ``||Sprites:définir la position||`` par les blocs ``||math:sélection aléatoire||``.
+Remplace les valeurs ``||Sprites:0||`` du bloc ``||Sprites:définir la position||`` par les blocs ``||math:sélection aléatoire||`` (onglet ``||math:Maths||``).
 
 ```blocks
 
@@ -455,7 +455,7 @@ mySprite2 = sprites.create(img`
 
 ## Étape 11
 
-Ajoute le bloc ``||info:démarrer le compte à rebours||`` sous le bloc ``||Sprites:définir la position||``.
+Ajoute le bloc ``||info:démarrer le compte à rebours||`` (onglet ``||info:Info||``) sous le bloc ``||Sprites:définir la position||``.
 
 Remplace la valeur ``||info:10||`` par ``||info:3||``.
 
