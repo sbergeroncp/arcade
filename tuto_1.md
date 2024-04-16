@@ -139,7 +139,7 @@ scene.setBackgroundImage(img`
 
 ## Étape 2
 
-Ajoute le bloc ``||game:splash||`` (onglet ``||game:Jeu||``)sous le bloc ``||scene:définir l'image d'arrière-plan||``.
+Ajoute le bloc ``||game:splash||`` (onglet ``||game:Jeu||``) sous le bloc ``||scene:définir l'image d'arrière-plan||``.
 
 Écris le nom du jeu dans le bloc ``||game:splash||``. 
 
