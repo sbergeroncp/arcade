@@ -726,8 +726,9 @@ Remplace la valeur ``||Sprites:50||`` de gauche par ``||Sprites:0||``.
 
 ```blocks
 
-game.onUpdateInterval(1000, function () {
-    mySprite2 = sprites.create(img`
+let Fantome: Sprite = null
+game.onUpdateInterval(2000, function () {
+    Fantome = sprites.create(img`
         ........................
         ........................
         ........................
@@ -754,7 +755,7 @@ game.onUpdateInterval(1000, function () {
         ........................
         `, SpriteKind.Enemy)
     animation.runImageAnimation(
-    mySprite2,
+    Fantome,
     [img`
         ........................
         ........................
@@ -809,8 +810,8 @@ game.onUpdateInterval(1000, function () {
     500,
     true
     )
-    mySprite2.setVelocity(-75, 0)
-})
+    Fantome.setVelocity(-75, 0)
+    })
 
 ```
 
@@ -1327,86 +1328,191 @@ Remplace la valeur ``||variables:mySprite||`` du troisième bloc par ``||variabl
 
 ```blocks
 
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    otherSprite.destroy(effects.ashes, 100)
-    music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.InBackground)
-    info.changeScoreBy(1)
-})
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    sprites.destroy(otherSprite, effects.trail, 100)
-    music.play(music.melodyPlayable(music.pewPew), music.PlaybackMode.InBackground)
-    info.changeLifeBy(-1)
-})
-let projectile2: Sprite = null
-let projectile: Sprite = null
-scene.setBackgroundColor(8)
+let Fantome: Sprite = null
+scene.setBackgroundColor(1)
 let mySprite = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . c c c c . . . . 
-    . . . . . . c c d d d d c . . . 
-    . . . . . c c c c c c d c . . . 
-    . . . . c c 4 4 4 4 d c c . . . 
-    . . . c 4 d 4 4 4 4 4 1 c . c c 
-    . . c 4 4 4 1 4 4 4 4 d 1 c 4 c 
-    . c 4 4 4 4 1 4 4 4 4 4 1 c 4 c 
-    f 4 4 4 4 4 1 4 4 4 4 4 1 4 4 f 
-    f 4 4 4 f 4 1 c c 4 4 4 1 f 4 f 
-    f 4 4 4 4 4 1 4 4 f 4 4 d f 4 f 
-    . f 4 4 4 4 1 c 4 f 4 d f f f f 
-    . . f f 4 d 4 4 f f 4 c f c . . 
-    . . . . f f 4 4 4 4 c d b c . . 
-    . . . . . . f f f f d d d c . . 
-    . . . . . . . . . . c c c . . . 
+    . . . . . f f f f f f . . . . . 
+    . . . f f e e e e f 2 f . . . . 
+    . . f f e e e e f 2 2 2 f . . . 
+    . . f e e e f f e e e e f . . . 
+    . . f f f f e e 2 2 2 2 e f . . 
+    . . f e 2 2 2 f f f f e 2 f . . 
+    . f f f f f f f e e e f f f . . 
+    . f f e 4 4 e b f 4 4 e e f . . 
+    . f e e 4 d 4 1 f d d e f f . . 
+    . . f e e e 4 d d d d f d d f . 
+    . . . f f e e 4 e e e f b b f . 
+    . . . . f 2 2 2 4 d d e b b f . 
+    . . . . e 2 2 2 e d d e b f . . 
+    . . . . f 4 4 4 f e e f f . . . 
+    . . . . . f f f f f f . . . . . 
+    . . . . . . f f f . . . . . . . 
     `, SpriteKind.Player)
-controller.moveSprite(mySprite)
+controller.moveSprite(mySprite, 125, 125)
+mySprite.setStayInScreen(true)
+animation.runImageAnimation(
+mySprite,
+[img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . f f f f f f . . . . . 
+    . . . f f e e e e f 2 f . . . . 
+    . . f f e e e e f 2 2 2 f . . . 
+    . . f e e e f f e e e e f . . . 
+    . . f f f f e e 2 2 2 2 e f . . 
+    . . f e 2 2 2 f f f f e 2 f . . 
+    . f f f f f f f e e e f f f . . 
+    . f f e 4 4 e b f 4 4 e e f . . 
+    . f e e 4 d 4 1 f d d e f . . . 
+    . . f e e e e e d d d f . . . . 
+    . . . . f 4 d d e 4 e f . . . . 
+    . . . . f e d d e 2 2 f . . . . 
+    . . . f f f e e f 5 5 f f . . . 
+    . . . f f f f f f f f f f . . . 
+    . . . . f f . . . f f f . . . . 
+    `,img`
+    . . . . . f f f f f f . . . . . 
+    . . . f f e e e e f 2 f . . . . 
+    . . f f e e e e f 2 2 2 f . . . 
+    . . f e e e f f e e e e f . . . 
+    . . f f f f e e 2 2 2 2 e f . . 
+    . . f e 2 2 2 f f f f e 2 f . . 
+    . f f f f f f f e e e f f f . . 
+    . f f e 4 4 e b f 4 4 e e f . . 
+    . f e e 4 d 4 1 f d d e f f . . 
+    . . f e e e 4 d d d d f d d f . 
+    . . . f f e e 4 e e e f b b f . 
+    . . . . f 2 2 2 4 d d e b b f . 
+    . . . . e 2 2 2 e d d e b f . . 
+    . . . . f 4 4 4 f e e f f . . . 
+    . . . . . f f f f f f . . . . . 
+    . . . . . . f f f . . . . . . . 
+    `,img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . f f f f f f . . . . . 
+    . . . f f e e e e f 2 f . . . . 
+    . . f f e e e e f 2 2 2 f . . . 
+    . . f e e e f f e e e e f . . . 
+    . . f f f f e e 2 2 2 2 e f . . 
+    . . f e 2 2 2 f f f f e 2 f . . 
+    . f f f f f f f e e e f f f . . 
+    . f f e 4 4 e b f 4 4 e e f . . 
+    . f e e 4 d 4 1 f d d e f . . . 
+    . . f e e e e e d d d f . . . . 
+    . . . . f 4 d d e 4 e f . . . . 
+    . . . . f e d d e 2 2 f . . . . 
+    . . . f f f e e f 5 5 f f . . . 
+    . . . f f f f f f f f f f . . . 
+    . . . . f f . . . f f f . . . . 
+    `,img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . f f f f f f . . . . . 
+    . . . f f e e e e f 2 f . . . . 
+    . . f f e e e e f 2 2 2 f . . . 
+    . . f e e e f f e e e e f . . . 
+    . . f f f f e e 2 2 2 2 e f . . 
+    . . f e 2 2 2 f f f f e 2 f . . 
+    . f f f f f f f e e e f f f . . 
+    . f f e 4 4 e b f 4 4 e e f . . 
+    . f e e 4 d 4 1 f d d e f f . . 
+    . . f e e e 4 d d d d f d d f . 
+    . . . . f e e 4 e e e f b b f . 
+    . . . . f 2 2 2 4 d d e b b f . 
+    . . . f f 4 4 4 e d d e b f . . 
+    . . . f f f f f f e e f f . . . 
+    . . . . f f . . . f f f . . . . 
+    `],
+500,
+true
+)
 info.setScore(0)
-game.onUpdateInterval(5000, function () {
-    projectile = sprites.createProjectileFromSide(img`
-        . . . . . . . . . . . 6 6 6 6 6 
-        . . . . . . . . . 6 6 7 7 7 7 8 
-        . . . . . . 8 8 8 7 7 8 8 6 8 8 
-        . . e e e e c 6 6 8 8 . 8 7 8 . 
-        . e 2 5 4 2 e c 8 . . . 6 7 8 . 
-        e 2 4 2 2 2 2 2 c . . . 6 7 8 . 
-        e 2 2 2 2 2 2 2 c . . . 8 6 8 . 
-        e 2 e e 2 2 2 2 e e e e c 6 8 . 
-        c 2 e e 2 2 2 2 e 2 5 4 2 c 8 . 
-        . c 2 e e e 2 e 2 4 2 2 2 2 c . 
-        . . c 2 2 2 e e 2 2 2 2 2 2 2 e 
-        . . . e c c e c 2 2 2 2 2 2 2 e 
-        . . . . . . . c 2 e e 2 2 e 2 c 
-        . . . . . . . c e e e e e e 2 c 
-        . . . . . . . . c e 2 2 2 2 c . 
-        . . . . . . . . . c c c c c . . 
-        `, randint(-50, 50), randint(-50, 50))
-    projectile2 = sprites.createProjectileFromSide(img`
-        .............ccfff..............
-        ...........ccddbcf..............
-        ..........ccddbbf...............
-        ..........fccbbcf...............
-        .....fffffccccccff.........ccc..
-        ...ffbbbbbbbcbbbbcfff....ccbbc..
-        ..fbbbbbbbbcbcbbbbcccff.cdbbc...
-        ffbbbbbbffbbcbcbbbcccccfcdbbf...
-        fbcbbb11ff1bcbbbbbcccccffbbf....
-        fbbb11111111bbbbbcccccccbbcf....
-        .fb11133cc11bbbbcccccccccccf....
-        ..fccc31c111bbbcccccbdbffbbcf...
-        ...fc13c111cbbbfcddddcc..fbbf...
-        ....fccc111fbdbbccdcc.....fbbf..
-        ........ccccfcdbbcc........fff..
-        .............fffff..............
-        `, randint(-50, 50), randint(-50, 50))
-    projectile2.setKind(SpriteKind.Enemy)
+info.setLife(3)
+music.setVolume(255)
+game.onUpdateInterval(2000, function () {
+    Fantome = sprites.create(img`
+        ........................
+        ........................
+        ........................
+        ........................
+        ..........ffff..........
+        ........ff1111ff........
+        .......fb111111bf.......
+        .......f1111111df.......
+        ......fd1111111ddf......
+        ......fd111111dddf......
+        ......fd111ddddddf......
+        ......fd1dfbddddbf......
+        ......fbddfcdbbbcf......
+        .......f11111bbcf.......
+        .......f1b1fffff........
+        .......fbfc111bf........
+        ........ff1b1bff........
+        .........fbfbfff.f......
+        ..........ffffffff......
+        ............fffff.......
+        ........................
+        ........................
+        ........................
+        ........................
+        `, SpriteKind.Enemy)
+    animation.runImageAnimation(
+    Fantome,
+    [img`
+        ........................
+        ........................
+        ........................
+        ........................
+        ..........fffff.........
+        ........ff1111bff.......
+        .......fb1111111bf......
+        .......f111111111f......
+        ......fd1111111ffff.....
+        ......fd111dd1c111bf....
+        ......fb11fcdf1b1bff....
+        ......f11111bfbfbff.....
+        ......f1b1bdfcffff......
+        ......fbfbfcfcccf.......
+        ......ffffffffff........
+        .........ffffff.........
+        .........ffffff.........
+        .........fffffff..f.....
+        ..........fffffffff.....
+        ...........fffffff......
+        ........................
+        ........................
+        ........................
+        ........................
+        `,img`
+        ........................
+        ........................
+        ........................
+        ..........ffff..........
+        ........ff1111ff........
+        .......fb111111bf.......
+        .......f1111111dbf......
+        ......fd1111111ddf......
+        ......fd111111dddf......
+        ......fd111ddddddf......
+        ......fd111ddddddf......
+        ......fd1dddddddbf......
+        ......fd1dfbddbbff......
+        ......fbddfcdbbcf.......
+        .....ffffccddbfff.......
+        ....fcb1bbbfcffff.......
+        ....f1b1dcffffffff......
+        ....fdfdf..ffffffffff...
+        .....f.f.....ffffff.....
+        ........................
+        ........................
+        ........................
+        ........................
+        ........................
+        `],
+    500,
+    true
+    )
+    Fantome.setVelocity(-75, 0)
+    Fantome.setPosition(160, randint(5, 115))
+    Fantome.setFlag(SpriteFlag.AutoDestroy, true)
 })
-forever(function () {
-    mySprite.setStayInScreen(true)
-    projectile.setStayInScreen(true)
-    projectile2.setStayInScreen(true)
-    mySprite.setBounceOnWall(true)
-    projectile.setBounceOnWall(true)
-    projectile2.setBounceOnWall(true)
-})
-
 
 ```
