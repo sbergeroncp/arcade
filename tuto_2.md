@@ -6,7 +6,7 @@ Programme un lutin pour qu'il se déplace sur l'écran.
 
 ## Étape 1
 
-Ajoute le bloc ``||scene:définir la couleur d'arrière-plan||`` dans le bloc ``||loops:au démarrage||``.
+Ajoute le bloc ``||scene:définir la couleur d'arrière-plan||`` (onglet ``||scene:Scène)||`` dans le bloc ``||loops:au démarrage||``.
 
 Choisis une couleur.
 
@@ -77,7 +77,7 @@ controller.moveSprite(mySprite)
 
 ## Étape 4
 
-Ajoute le bloc ``||animation:animer mySprite||`` sous le bloc ``||scroller:déplacer avec les boutons||``.
+Ajoute le bloc ``||animation:animer mySprite||`` (onglet ``||animation:Animation||``) sous le bloc ``||scroller:déplacer avec les boutons||``.
 
 Sélectionne les valeurs ci-dessous :
 

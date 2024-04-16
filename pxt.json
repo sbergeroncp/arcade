@@ -1,6 +1,6 @@
 {
     "name": "arcade",
-    "version": "0.0.16",
+    "version": "0.0.18",
     "description": "",
     "dependencies": {
         "device": "*"
@@ -13,7 +13,8 @@
         "tuto_1.md",
         "tuto_3.md",
         "tuto_4.md",
-        "tuto_5.md"
+        "tuto_5.md",
+        "carnaval_1.md"
     ],
     "testFiles": [
         "test.ts"

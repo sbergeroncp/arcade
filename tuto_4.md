@@ -368,7 +368,7 @@ game.onUpdateInterval(5000, function () {
 
 ## Étape 11
 
-Voici la programmeation jusqu'à maintenant.
+Voici la programmation jusqu'à maintenant.
 
 Observe bien l'indice et apporte les modifications nécessaires au besoin.
 

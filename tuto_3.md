@@ -6,7 +6,7 @@ Programme deux lutins pour qu'ils interagissent à l'écran­.
 
 ## Étape 1
 
-Ajoute le bloc ``||scene:définir la couleur d'arrière-plan||`` dans le bloc ``||loops:au démarrage||``.
+Ajoute le bloc ``||scene:définir la couleur d'arrière-plan||`` (onglet ``||scene:Scène||``) dans le bloc ``||loops:au démarrage||``.
 
 Choisis une couleur.
 
@@ -183,7 +183,7 @@ let mySprite2 = sprites.create(img`
 
 ## Étape 6
 
-Ajoute le bloc ``||info:modifier le score||`` dans le bloc ``||Sprites:quand||``.
+Ajoute le bloc ``||info:modifier le score||`` (onglet ``||info:Info||``) dans le bloc ``||Sprites:quand||``.
 
 La valeur ``||info:1||`` du bloc ``||info:modifier le score||`` demeure la même.
 
