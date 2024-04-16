@@ -446,7 +446,7 @@ music.setVolume(255)
 
 ## Étape 8
 
-Voici la programmation du bloc ``||loops:au démarrage||``.
+Voici la programmation complète du bloc ``||loops:au démarrage||``.
 
 Observe bien l'indice et apporte les modifications nécessaires au besoin.
 
@@ -726,108 +726,8 @@ Remplace la valeur ``||Sprites:50||`` de gauche par ``||Sprites:0||``.
 
 ```blocks
 
-let Fantome: Sprite = null
+let mySprite2: Sprite = null
 game.onUpdateInterval(2000, function () {
-    Fantome = sprites.create(img`
-        ........................
-        ........................
-        ........................
-        ........................
-        ..........ffff..........
-        ........ff1111ff........
-        .......fb111111bf.......
-        .......f1111111df.......
-        ......fd1111111ddf......
-        ......fd111111dddf......
-        ......fd111ddddddf......
-        ......fd1dfbddddbf......
-        ......fbddfcdbbbcf......
-        .......f11111bbcf.......
-        .......f1b1fffff........
-        .......fbfc111bf........
-        ........ff1b1bff........
-        .........fbfbfff.f......
-        ..........ffffffff......
-        ............fffff.......
-        ........................
-        ........................
-        ........................
-        ........................
-        `, SpriteKind.Enemy)
-    animation.runImageAnimation(
-    Fantome,
-    [img`
-        ........................
-        ........................
-        ........................
-        ........................
-        ..........fffff.........
-        ........ff1111bff.......
-        .......fb1111111bf......
-        .......f111111111f......
-        ......fd1111111ffff.....
-        ......fd111dd1c111bf....
-        ......fb11fcdf1b1bff....
-        ......f11111bfbfbff.....
-        ......f1b1bdfcffff......
-        ......fbfbfcfcccf.......
-        ......ffffffffff........
-        .........ffffff.........
-        .........ffffff.........
-        .........fffffff..f.....
-        ..........fffffffff.....
-        ...........fffffff......
-        ........................
-        ........................
-        ........................
-        ........................
-        `,img`
-        ........................
-        ........................
-        ........................
-        ..........ffff..........
-        ........ff1111ff........
-        .......fb111111bf.......
-        .......f1111111dbf......
-        ......fd1111111ddf......
-        ......fd111111dddf......
-        ......fd111ddddddf......
-        ......fd111ddddddf......
-        ......fd1dddddddbf......
-        ......fd1dfbddbbff......
-        ......fbddfcdbbcf.......
-        .....ffffccddbfff.......
-        ....fcb1bbbfcffff.......
-        ....f1b1dcffffffff......
-        ....fdfdf..ffffffffff...
-        .....f.f.....ffffff.....
-        ........................
-        ........................
-        ........................
-        ........................
-        ........................
-        `],
-    500,
-    true
-    )
-    Fantome.setVelocity(-75, 0)
-    })
-
-```
-
-## Étape 13
-
-Ajoute le bloc ``||sprites:définir la position||`` (onglet ``||Sprites:Sprites||``) sous le bloc ``||sprites:définir la vitesse||``.
-
-Modifie la valeur ``||variables:mySprite||`` pour ``||variables:mySprite2||``.
-
-Remplace la valeur ``||Sprites:0||`` de gauche par ``||Sprites:160||``.
-
-Remplace la valeur ``||Sprites:0||`` de droite par le bloc ``||maths:sélection aléatoire||``.
-
-```blocks
-
-game.onUpdateInterval(1000, function () {
     mySprite2 = sprites.create(img`
         ........................
         ........................
@@ -911,524 +811,26 @@ game.onUpdateInterval(1000, function () {
     true
     )
     mySprite2.setVelocity(-75, 0)
-    mySprite2.setPosition(0, randint(0, 10))
 })
 
-```
-
-## Étape 9
-
-Modifie les blocs ``||variables:définir projectile||`` et ``||variables:définir projectile2||``.
-
-Remplace les 4 valeurs ``||sprites:50||`` par les blocs ``||math:sélection aléatoire||``.
-
-```blocks
-
-let projectile: Sprite = null
-let projectile2: Sprite = null
-game.onUpdateInterval(5000, function () {
-    projectile = sprites.createProjectileFromSide(img`
-        . . . . . . . . . . . 6 6 6 6 6 
-        . . . . . . . . . 6 6 7 7 7 7 8 
-        . . . . . . 8 8 8 7 7 8 8 6 8 8 
-        . . e e e e c 6 6 8 8 . 8 7 8 . 
-        . e 2 5 4 2 e c 8 . . . 6 7 8 . 
-        e 2 4 2 2 2 2 2 c . . . 6 7 8 . 
-        e 2 2 2 2 2 2 2 c . . . 8 6 8 . 
-        e 2 e e 2 2 2 2 e e e e c 6 8 . 
-        c 2 e e 2 2 2 2 e 2 5 4 2 c 8 . 
-        . c 2 e e e 2 e 2 4 2 2 2 2 c . 
-        . . c 2 2 2 e e 2 2 2 2 2 2 2 e 
-        . . . e c c e c 2 2 2 2 2 2 2 e 
-        . . . . . . . c 2 e e 2 2 e 2 c 
-        . . . . . . . c e e e e e e 2 c 
-        . . . . . . . . c e 2 2 2 2 c . 
-        . . . . . . . . . c c c c c . . 
-        `, randint(0, 10), randint(0, 10))
-    projectile2 = sprites.createProjectileFromSide(img`
-        .............ccfff..............
-        ...........ccddbcf..............
-        ..........ccddbbf...............
-        ..........fccbbcf...............
-        .....fffffccccccff.........ccc..
-        ...ffbbbbbbbcbbbbcfff....ccbbc..
-        ..fbbbbbbbbcbcbbbbcccff.cdbbc...
-        ffbbbbbbffbbcbcbbbcccccfcdbbf...
-        fbcbbb11ff1bcbbbbbcccccffbbf....
-        fbbb11111111bbbbbcccccccbbcf....
-        .fb11133cc11bbbbcccccccccccf....
-        ..fccc31c111bbbcccccbdbffbbcf...
-        ...fc13c111cbbbfcddddcc..fbbf...
-        ....fccc111fbdbbccdcc.....fbbf..
-        ........ccccfcdbbcc........fff..
-        .............fffff..............
-        `, randint(0, 10), randint(0, 10))
-    projectile2.setKind(SpriteKind.Enemy)
-})
-
-
-```
-
-## Étape 10
-
-Modifie les blocs ``||math:sélection aléatoire||``.
-
-Remplace les 4 valeurs ``||math:0||`` par ``||math:-50||``.
-
-Remplace les 4 valeurs ``||math:10||`` par ``||math:50||``.
-
-```blocks
-
-let projectile: Sprite = null
-let projectile2: Sprite = null
-game.onUpdateInterval(5000, function () {
-    projectile = sprites.createProjectileFromSide(img`
-        . . . . . . . . . . . 6 6 6 6 6 
-        . . . . . . . . . 6 6 7 7 7 7 8 
-        . . . . . . 8 8 8 7 7 8 8 6 8 8 
-        . . e e e e c 6 6 8 8 . 8 7 8 . 
-        . e 2 5 4 2 e c 8 . . . 6 7 8 . 
-        e 2 4 2 2 2 2 2 c . . . 6 7 8 . 
-        e 2 2 2 2 2 2 2 c . . . 8 6 8 . 
-        e 2 e e 2 2 2 2 e e e e c 6 8 . 
-        c 2 e e 2 2 2 2 e 2 5 4 2 c 8 . 
-        . c 2 e e e 2 e 2 4 2 2 2 2 c . 
-        . . c 2 2 2 e e 2 2 2 2 2 2 2 e 
-        . . . e c c e c 2 2 2 2 2 2 2 e 
-        . . . . . . . c 2 e e 2 2 e 2 c 
-        . . . . . . . c e e e e e e 2 c 
-        . . . . . . . . c e 2 2 2 2 c . 
-        . . . . . . . . . c c c c c . . 
-        `, randint(-50, 50), randint(-50, 50))
-    projectile2 = sprites.createProjectileFromSide(img`
-        .............ccfff..............
-        ...........ccddbcf..............
-        ..........ccddbbf...............
-        ..........fccbbcf...............
-        .....fffffccccccff.........ccc..
-        ...ffbbbbbbbcbbbbcfff....ccbbc..
-        ..fbbbbbbbbcbcbbbbcccff.cdbbc...
-        ffbbbbbbffbbcbcbbbcccccfcdbbf...
-        fbcbbb11ff1bcbbbbbcccccffbbf....
-        fbbb11111111bbbbbcccccccbbcf....
-        .fb11133cc11bbbbcccccccccccf....
-        ..fccc31c111bbbcccccbdbffbbcf...
-        ...fc13c111cbbbfcddddcc..fbbf...
-        ....fccc111fbdbbccdcc.....fbbf..
-        ........ccccfcdbbcc........fff..
-        .............fffff..............
-        `, randint(-50, 50), randint(-50, 50))
-    projectile2.setKind(SpriteKind.Enemy)
-})
-
-```
-
-## Étape 11
-
-Voici la programmation jusqu'à maintenant.
-
-Observe bien l'indice et apporte les modifications nécessaires au besoin.
-
-```blocks
-
-let projectile2: Sprite = null
-let projectile: Sprite = null
-scene.setBackgroundColor(8)
-let mySprite = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . c c c c . . . . 
-    . . . . . . c c d d d d c . . . 
-    . . . . . c c c c c c d c . . . 
-    . . . . c c 4 4 4 4 d c c . . . 
-    . . . c 4 d 4 4 4 4 4 1 c . c c 
-    . . c 4 4 4 1 4 4 4 4 d 1 c 4 c 
-    . c 4 4 4 4 1 4 4 4 4 4 1 c 4 c 
-    f 4 4 4 4 4 1 4 4 4 4 4 1 4 4 f 
-    f 4 4 4 f 4 1 c c 4 4 4 1 f 4 f 
-    f 4 4 4 4 4 1 4 4 f 4 4 d f 4 f 
-    . f 4 4 4 4 1 c 4 f 4 d f f f f 
-    . . f f 4 d 4 4 f f 4 c f c . . 
-    . . . . f f 4 4 4 4 c d b c . . 
-    . . . . . . f f f f d d d c . . 
-    . . . . . . . . . . c c c . . . 
-    `, SpriteKind.Player)
-controller.moveSprite(mySprite)
-info.setScore(0)
-game.onUpdateInterval(5000, function () {
-    projectile = sprites.createProjectileFromSide(img`
-        . . . . . . . . . . . 6 6 6 6 6 
-        . . . . . . . . . 6 6 7 7 7 7 8 
-        . . . . . . 8 8 8 7 7 8 8 6 8 8 
-        . . e e e e c 6 6 8 8 . 8 7 8 . 
-        . e 2 5 4 2 e c 8 . . . 6 7 8 . 
-        e 2 4 2 2 2 2 2 c . . . 6 7 8 . 
-        e 2 2 2 2 2 2 2 c . . . 8 6 8 . 
-        e 2 e e 2 2 2 2 e e e e c 6 8 . 
-        c 2 e e 2 2 2 2 e 2 5 4 2 c 8 . 
-        . c 2 e e e 2 e 2 4 2 2 2 2 c . 
-        . . c 2 2 2 e e 2 2 2 2 2 2 2 e 
-        . . . e c c e c 2 2 2 2 2 2 2 e 
-        . . . . . . . c 2 e e 2 2 e 2 c 
-        . . . . . . . c e e e e e e 2 c 
-        . . . . . . . . c e 2 2 2 2 c . 
-        . . . . . . . . . c c c c c . . 
-        `, randint(-50, 50), randint(-50, 50))
-    projectile2 = sprites.createProjectileFromSide(img`
-        .............ccfff..............
-        ...........ccddbcf..............
-        ..........ccddbbf...............
-        ..........fccbbcf...............
-        .....fffffccccccff.........ccc..
-        ...ffbbbbbbbcbbbbcfff....ccbbc..
-        ..fbbbbbbbbcbcbbbbcccff.cdbbc...
-        ffbbbbbbffbbcbcbbbcccccfcdbbf...
-        fbcbbb11ff1bcbbbbbcccccffbbf....
-        fbbb11111111bbbbbcccccccbbcf....
-        .fb11133cc11bbbbcccccccccccf....
-        ..fccc31c111bbbcccccbdbffbbcf...
-        ...fc13c111cbbbfcddddcc..fbbf...
-        ....fccc111fbdbbccdcc.....fbbf..
-        ........ccccfcdbbcc........fff..
-        .............fffff..............
-        `, randint(-50, 50), randint(-50, 50))
-    projectile2.setKind(SpriteKind.Enemy)
-})
-
-```
-
-## Étape 11
-
-Glisse le bloc ``||sprites:quand||`` (onglet ``||sprites:Sprites||``) dans la zone de programmation.
-
-Remplace la valeur ``||sprites:Player||`` de droite par ``||sprites:Projectile||``.
-
-
-```blocks
-
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherSprite) {
-	
-})
-
-```
-
-## Étape 12
-
-Ajoute le bloc ``||sprites:destroy||`` (onglet ``||sprites:Sprites||``) dans le bloc ``||sprites:quand||``.
-
-Remplace la valeur ``||variables:mySprite||`` par ``||variables:otherSprite||``. Glisse celle du bloc ``||sprites:quand||``.
-
-Appuie sur le bouton ``||sprites:+||`` pour afficher plus d'options.
-
-Choisis une animation et remplace la valeur ``||sprites:500||`` par ``||sprites:100||``
-
-
-```blocks
-
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    otherSprite.destroy(effects.ashes, 100)
-})
 
 ```
 
 ## Étape 13
 
-Ajoute le bloc ``||music:lire son||`` (onglet ``||music:Musique||``) sous le bloc ``||sprites:destroy||``.
+Ajoute le bloc ``||sprites:définir la position||`` (onglet ``||Sprites:Sprites||``) sous le bloc ``||sprites:définir la vitesse||``.
 
-Choisis un son.
+Modifie la valeur ``||variables:mySprite||`` pour ``||variables:mySprite2||``.
 
-Remplace la valeur ``||music:jusqu'à la fin||`` par ``||music:en arrière-plan||``
+Remplace la valeur ``||Sprites:0||`` de gauche par ``||Sprites:150||``.
 
-```blocks
-
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    otherSprite.destroy(effects.ashes, 100)
-    music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.InBackground)
-})
-
-```
-
-## Étape 14
-
-Ajoute le bloc ``||info:modifier le score||`` (onglet ``||info:Info||``) sous le bloc ``||music:lire son||``.
-
-La valeur ``||info:1||`` demeure la même.
+Remplace la valeur ``||Sprites:0||`` de droite par le bloc ``||maths:sélection aléatoire||``.
 
 ```blocks
 
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    otherSprite.destroy(effects.ashes, 100)
-    music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.InBackground)
-    info.changeScoreBy(1)
-})
-
-```
-
-## Étape 15
-
-Glisse le bloc ``||sprites:quand||`` (onglet ``||sprites:Sprites||``) dans la zone de programmation.
-
-Remplace la valeur ``||sprites:Player||`` de droite par ``||sprites:Enemy||``.
-
-
-```blocks
-
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-	
-})
-
-```
-
-## Étape 16
-
-Ajoute le bloc ``||sprites:destroy||`` (onglet ``||sprites:Sprites||``) dans le bloc ``||sprites:quand||``.
-
-Remplace la valeur ``||variables:mySprite||`` par ``||variables:otherSprite||``. Glisse celle du bloc ``||sprites:quand||``.
-
-Appuie sur le bouton ``||sprites:+||`` pour afficher plus d'options.
-
-Choisis une animation et remplace la valeur ``||sprites:500||`` par ``||sprites:100||``
-
-
-```blocks
-
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    sprites.destroy(otherSprite, effects.trail, 100)
-```
-
-## Étape 17
-
-Ajoute le bloc ``||music:lire son||`` (onglet ``||music:Musique||``) sous le bloc ``||sprites:destroy||``.
-
-Choisis un son.
-
-Remplace la valeur ``||music:jusqu'à la fin||`` par ``||music:en arrière-plan||``
-
-```blocks
-
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    sprites.destroy(otherSprite, effects.trail, 100)
-    music.play(music.melodyPlayable(music.pewPew), music.PlaybackMode.InBackground)
-
-```
-
-## Étape 18
-
-Ajoute le bloc ``||info:modifier la vie||`` (onglet ``||info:Info||``) sous le bloc ``||music:lire son||``.
-
-La valeur ``||info:-1||`` demeure la même.
-
-```blocks
-
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    sprites.destroy(otherSprite, effects.trail, 100)
-    music.play(music.melodyPlayable(music.pewPew), music.PlaybackMode.InBackground)
-    info.changeLifeBy(-1)
-
-```
-
-## Étape 19
-
-Glisse le bloc ``||loops:toujours||`` (onglet ``||loops:Boucles||``) dans la zone de programmation.
-
-Ajoute trois blocs ``||sprites:rester à lécran||`` (onglet ``||sprites:Sprites||``) dans le bloc ``||loops:toujours||``.
-
-Remplace la valeur ``||variables:mySprite||`` du deuxième bloc par ``||variables:projectile||``.
-
-Remplace la valeur ``||variables:mySprite||`` du troisième bloc par ``||variables:projectile2||``.
-
-```blocks
-
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    otherSprite.destroy(effects.ashes, 100)
-    music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.InBackground)
-    info.changeScoreBy(1)
-})
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    sprites.destroy(otherSprite, effects.trail, 100)
-    music.play(music.melodyPlayable(music.pewPew), music.PlaybackMode.InBackground)
-    info.changeLifeBy(-1)
-})
-let projectile2: Sprite = null
-let projectile: Sprite = null
-scene.setBackgroundColor(8)
-let mySprite = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . c c c c . . . . 
-    . . . . . . c c d d d d c . . . 
-    . . . . . c c c c c c d c . . . 
-    . . . . c c 4 4 4 4 d c c . . . 
-    . . . c 4 d 4 4 4 4 4 1 c . c c 
-    . . c 4 4 4 1 4 4 4 4 d 1 c 4 c 
-    . c 4 4 4 4 1 4 4 4 4 4 1 c 4 c 
-    f 4 4 4 4 4 1 4 4 4 4 4 1 4 4 f 
-    f 4 4 4 f 4 1 c c 4 4 4 1 f 4 f 
-    f 4 4 4 4 4 1 4 4 f 4 4 d f 4 f 
-    . f 4 4 4 4 1 c 4 f 4 d f f f f 
-    . . f f 4 d 4 4 f f 4 c f c . . 
-    . . . . f f 4 4 4 4 c d b c . . 
-    . . . . . . f f f f d d d c . . 
-    . . . . . . . . . . c c c . . . 
-    `, SpriteKind.Player)
-controller.moveSprite(mySprite)
-info.setScore(0)
-game.onUpdateInterval(5000, function () {
-    projectile = sprites.createProjectileFromSide(img`
-        . . . . . . . . . . . 6 6 6 6 6 
-        . . . . . . . . . 6 6 7 7 7 7 8 
-        . . . . . . 8 8 8 7 7 8 8 6 8 8 
-        . . e e e e c 6 6 8 8 . 8 7 8 . 
-        . e 2 5 4 2 e c 8 . . . 6 7 8 . 
-        e 2 4 2 2 2 2 2 c . . . 6 7 8 . 
-        e 2 2 2 2 2 2 2 c . . . 8 6 8 . 
-        e 2 e e 2 2 2 2 e e e e c 6 8 . 
-        c 2 e e 2 2 2 2 e 2 5 4 2 c 8 . 
-        . c 2 e e e 2 e 2 4 2 2 2 2 c . 
-        . . c 2 2 2 e e 2 2 2 2 2 2 2 e 
-        . . . e c c e c 2 2 2 2 2 2 2 e 
-        . . . . . . . c 2 e e 2 2 e 2 c 
-        . . . . . . . c e e e e e e 2 c 
-        . . . . . . . . c e 2 2 2 2 c . 
-        . . . . . . . . . c c c c c . . 
-        `, randint(-50, 50), randint(-50, 50))
-    projectile2 = sprites.createProjectileFromSide(img`
-        .............ccfff..............
-        ...........ccddbcf..............
-        ..........ccddbbf...............
-        ..........fccbbcf...............
-        .....fffffccccccff.........ccc..
-        ...ffbbbbbbbcbbbbcfff....ccbbc..
-        ..fbbbbbbbbcbcbbbbcccff.cdbbc...
-        ffbbbbbbffbbcbcbbbcccccfcdbbf...
-        fbcbbb11ff1bcbbbbbcccccffbbf....
-        fbbb11111111bbbbbcccccccbbcf....
-        .fb11133cc11bbbbcccccccccccf....
-        ..fccc31c111bbbcccccbdbffbbcf...
-        ...fc13c111cbbbfcddddcc..fbbf...
-        ....fccc111fbdbbccdcc.....fbbf..
-        ........ccccfcdbbcc........fff..
-        .............fffff..............
-        `, randint(-50, 50), randint(-50, 50))
-    projectile2.setKind(SpriteKind.Enemy)
-})
-forever(function () {
-    mySprite.setStayInScreen(true)
-    projectile.setStayInScreen(true)
-    projectile2.setStayInScreen(true)
-})
-
-```
-
-## Étape 20
-
-Ajoute trois blocs ``||sprites:rebondir sur mur||`` (onglet ``||sprites:Sprites||``) sous le bloc ``||sprites:rester à lécran||``.
-
-Remplace la valeur ``||variables:mySprite||`` du deuxième bloc par ``||variables:projectile||``.
-
-Remplace la valeur ``||variables:mySprite||`` du troisième bloc par ``||variables:projectile2||``.
-
-```blocks
-
-let Fantome: Sprite = null
-scene.setBackgroundColor(1)
-let mySprite = sprites.create(img`
-    . . . . . f f f f f f . . . . . 
-    . . . f f e e e e f 2 f . . . . 
-    . . f f e e e e f 2 2 2 f . . . 
-    . . f e e e f f e e e e f . . . 
-    . . f f f f e e 2 2 2 2 e f . . 
-    . . f e 2 2 2 f f f f e 2 f . . 
-    . f f f f f f f e e e f f f . . 
-    . f f e 4 4 e b f 4 4 e e f . . 
-    . f e e 4 d 4 1 f d d e f f . . 
-    . . f e e e 4 d d d d f d d f . 
-    . . . f f e e 4 e e e f b b f . 
-    . . . . f 2 2 2 4 d d e b b f . 
-    . . . . e 2 2 2 e d d e b f . . 
-    . . . . f 4 4 4 f e e f f . . . 
-    . . . . . f f f f f f . . . . . 
-    . . . . . . f f f . . . . . . . 
-    `, SpriteKind.Player)
-controller.moveSprite(mySprite, 125, 125)
-mySprite.setStayInScreen(true)
-animation.runImageAnimation(
-mySprite,
-[img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . f f f f f f . . . . . 
-    . . . f f e e e e f 2 f . . . . 
-    . . f f e e e e f 2 2 2 f . . . 
-    . . f e e e f f e e e e f . . . 
-    . . f f f f e e 2 2 2 2 e f . . 
-    . . f e 2 2 2 f f f f e 2 f . . 
-    . f f f f f f f e e e f f f . . 
-    . f f e 4 4 e b f 4 4 e e f . . 
-    . f e e 4 d 4 1 f d d e f . . . 
-    . . f e e e e e d d d f . . . . 
-    . . . . f 4 d d e 4 e f . . . . 
-    . . . . f e d d e 2 2 f . . . . 
-    . . . f f f e e f 5 5 f f . . . 
-    . . . f f f f f f f f f f . . . 
-    . . . . f f . . . f f f . . . . 
-    `,img`
-    . . . . . f f f f f f . . . . . 
-    . . . f f e e e e f 2 f . . . . 
-    . . f f e e e e f 2 2 2 f . . . 
-    . . f e e e f f e e e e f . . . 
-    . . f f f f e e 2 2 2 2 e f . . 
-    . . f e 2 2 2 f f f f e 2 f . . 
-    . f f f f f f f e e e f f f . . 
-    . f f e 4 4 e b f 4 4 e e f . . 
-    . f e e 4 d 4 1 f d d e f f . . 
-    . . f e e e 4 d d d d f d d f . 
-    . . . f f e e 4 e e e f b b f . 
-    . . . . f 2 2 2 4 d d e b b f . 
-    . . . . e 2 2 2 e d d e b f . . 
-    . . . . f 4 4 4 f e e f f . . . 
-    . . . . . f f f f f f . . . . . 
-    . . . . . . f f f . . . . . . . 
-    `,img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . f f f f f f . . . . . 
-    . . . f f e e e e f 2 f . . . . 
-    . . f f e e e e f 2 2 2 f . . . 
-    . . f e e e f f e e e e f . . . 
-    . . f f f f e e 2 2 2 2 e f . . 
-    . . f e 2 2 2 f f f f e 2 f . . 
-    . f f f f f f f e e e f f f . . 
-    . f f e 4 4 e b f 4 4 e e f . . 
-    . f e e 4 d 4 1 f d d e f . . . 
-    . . f e e e e e d d d f . . . . 
-    . . . . f 4 d d e 4 e f . . . . 
-    . . . . f e d d e 2 2 f . . . . 
-    . . . f f f e e f 5 5 f f . . . 
-    . . . f f f f f f f f f f . . . 
-    . . . . f f . . . f f f . . . . 
-    `,img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . f f f f f f . . . . . 
-    . . . f f e e e e f 2 f . . . . 
-    . . f f e e e e f 2 2 2 f . . . 
-    . . f e e e f f e e e e f . . . 
-    . . f f f f e e 2 2 2 2 e f . . 
-    . . f e 2 2 2 f f f f e 2 f . . 
-    . f f f f f f f e e e f f f . . 
-    . f f e 4 4 e b f 4 4 e e f . . 
-    . f e e 4 d 4 1 f d d e f f . . 
-    . . f e e e 4 d d d d f d d f . 
-    . . . . f e e 4 e e e f b b f . 
-    . . . . f 2 2 2 4 d d e b b f . 
-    . . . f f 4 4 4 e d d e b f . . 
-    . . . f f f f f f e e f f . . . 
-    . . . . f f . . . f f f . . . . 
-    `],
-500,
-true
-)
-info.setScore(0)
-info.setLife(3)
-music.setVolume(255)
+let mySprite2: Sprite = null
 game.onUpdateInterval(2000, function () {
-    Fantome = sprites.create(img`
+    mySprite2 = sprites.create(img`
         ........................
         ........................
         ........................
@@ -1455,7 +857,7 @@ game.onUpdateInterval(2000, function () {
         ........................
         `, SpriteKind.Enemy)
     animation.runImageAnimation(
-    Fantome,
+    mySprite2,
     [img`
         ........................
         ........................
@@ -1510,9 +912,634 @@ game.onUpdateInterval(2000, function () {
     500,
     true
     )
-    Fantome.setVelocity(-75, 0)
-    Fantome.setPosition(160, randint(5, 115))
-    Fantome.setFlag(SpriteFlag.AutoDestroy, true)
+    mySprite2.setVelocity(-75, 0)
+    mySprite2.setPosition(150, randint(0, 10))
+})
+
+```
+
+## Étape 14
+
+Modifie le bloc ``||maths:sélection aléatoire||``.
+
+Remplace la valeur ``||maths:0||`` par ``||maths:5||``.
+
+Remplace la valeur ``||maths:10||`` par ``||maths:110||``.
+
+```blocks
+
+let mySprite2: Sprite = null
+game.onUpdateInterval(2000, function () {
+    mySprite2 = sprites.create(img`
+        ........................
+        ........................
+        ........................
+        ........................
+        ..........ffff..........
+        ........ff1111ff........
+        .......fb111111bf.......
+        .......f1111111df.......
+        ......fd1111111ddf......
+        ......fd111111dddf......
+        ......fd111ddddddf......
+        ......fd1dfbddddbf......
+        ......fbddfcdbbbcf......
+        .......f11111bbcf.......
+        .......f1b1fffff........
+        .......fbfc111bf........
+        ........ff1b1bff........
+        .........fbfbfff.f......
+        ..........ffffffff......
+        ............fffff.......
+        ........................
+        ........................
+        ........................
+        ........................
+        `, SpriteKind.Enemy)
+    animation.runImageAnimation(
+    mySprite2,
+    [img`
+        ........................
+        ........................
+        ........................
+        ........................
+        ..........fffff.........
+        ........ff1111bff.......
+        .......fb1111111bf......
+        .......f111111111f......
+        ......fd1111111ffff.....
+        ......fd111dd1c111bf....
+        ......fb11fcdf1b1bff....
+        ......f11111bfbfbff.....
+        ......f1b1bdfcffff......
+        ......fbfbfcfcccf.......
+        ......ffffffffff........
+        .........ffffff.........
+        .........ffffff.........
+        .........fffffff..f.....
+        ..........fffffffff.....
+        ...........fffffff......
+        ........................
+        ........................
+        ........................
+        ........................
+        `,img`
+        ........................
+        ........................
+        ........................
+        ..........ffff..........
+        ........ff1111ff........
+        .......fb111111bf.......
+        .......f1111111dbf......
+        ......fd1111111ddf......
+        ......fd111111dddf......
+        ......fd111ddddddf......
+        ......fd111ddddddf......
+        ......fd1dddddddbf......
+        ......fd1dfbddbbff......
+        ......fbddfcdbbcf.......
+        .....ffffccddbfff.......
+        ....fcb1bbbfcffff.......
+        ....f1b1dcffffffff......
+        ....fdfdf..ffffffffff...
+        .....f.f.....ffffff.....
+        ........................
+        ........................
+        ........................
+        ........................
+        ........................
+        `],
+    500,
+    true
+    )
+    mySprite2.setVelocity(-75, 0)
+    mySprite2.setPosition(150, randint(5, 110))
+})
+
+```
+
+## Étape 14
+
+Ajoute le bloc ``||sprites:destruction automatique||`` (onglet ``||Sprites:Sprites||``) sous le bloc ``||sprites:définir la position||``.
+
+Modifie la valeur ``||variables:mySprite||`` pour ``||variables:mySprite2||``.
+
+Assure-toi d'activer le bloc.
+
+```blocks
+
+let mySprite2: Sprite = null
+game.onUpdateInterval(2000, function () {
+    mySprite2 = sprites.create(img`
+        ........................
+        ........................
+        ........................
+        ........................
+        ..........ffff..........
+        ........ff1111ff........
+        .......fb111111bf.......
+        .......f1111111df.......
+        ......fd1111111ddf......
+        ......fd111111dddf......
+        ......fd111ddddddf......
+        ......fd1dfbddddbf......
+        ......fbddfcdbbbcf......
+        .......f11111bbcf.......
+        .......f1b1fffff........
+        .......fbfc111bf........
+        ........ff1b1bff........
+        .........fbfbfff.f......
+        ..........ffffffff......
+        ............fffff.......
+        ........................
+        ........................
+        ........................
+        ........................
+        `, SpriteKind.Enemy)
+    animation.runImageAnimation(
+    mySprite2,
+    [img`
+        ........................
+        ........................
+        ........................
+        ........................
+        ..........fffff.........
+        ........ff1111bff.......
+        .......fb1111111bf......
+        .......f111111111f......
+        ......fd1111111ffff.....
+        ......fd111dd1c111bf....
+        ......fb11fcdf1b1bff....
+        ......f11111bfbfbff.....
+        ......f1b1bdfcffff......
+        ......fbfbfcfcccf.......
+        ......ffffffffff........
+        .........ffffff.........
+        .........ffffff.........
+        .........fffffff..f.....
+        ..........fffffffff.....
+        ...........fffffff......
+        ........................
+        ........................
+        ........................
+        ........................
+        `,img`
+        ........................
+        ........................
+        ........................
+        ..........ffff..........
+        ........ff1111ff........
+        .......fb111111bf.......
+        .......f1111111dbf......
+        ......fd1111111ddf......
+        ......fd111111dddf......
+        ......fd111ddddddf......
+        ......fd111ddddddf......
+        ......fd1dddddddbf......
+        ......fd1dfbddbbff......
+        ......fbddfcdbbcf.......
+        .....ffffccddbfff.......
+        ....fcb1bbbfcffff.......
+        ....f1b1dcffffffff......
+        ....fdfdf..ffffffffff...
+        .....f.f.....ffffff.....
+        ........................
+        ........................
+        ........................
+        ........................
+        ........................
+        `],
+    500,
+    true
+    )
+    mySprite2.setVelocity(-75, 0)
+    mySprite2.setPosition(150, randint(5, 110))
+    mySprite2.setFlag(SpriteFlag.AutoDestroy, true)
+})
+
+```
+
+## Étape 15
+
+Voici la programmation complète du bloc ``||game:quand mise à jour||``.
+
+Observe bien l'indice et apporte les modifications nécessaires au besoin.
+
+```blocks
+
+let mySprite2: Sprite = null
+game.onUpdateInterval(2000, function () {
+    mySprite2 = sprites.create(img`
+        ........................
+        ........................
+        ........................
+        ........................
+        ..........ffff..........
+        ........ff1111ff........
+        .......fb111111bf.......
+        .......f1111111df.......
+        ......fd1111111ddf......
+        ......fd111111dddf......
+        ......fd111ddddddf......
+        ......fd1dfbddddbf......
+        ......fbddfcdbbbcf......
+        .......f11111bbcf.......
+        .......f1b1fffff........
+        .......fbfc111bf........
+        ........ff1b1bff........
+        .........fbfbfff.f......
+        ..........ffffffff......
+        ............fffff.......
+        ........................
+        ........................
+        ........................
+        ........................
+        `, SpriteKind.Enemy)
+    animation.runImageAnimation(
+    mySprite2,
+    [img`
+        ........................
+        ........................
+        ........................
+        ........................
+        ..........fffff.........
+        ........ff1111bff.......
+        .......fb1111111bf......
+        .......f111111111f......
+        ......fd1111111ffff.....
+        ......fd111dd1c111bf....
+        ......fb11fcdf1b1bff....
+        ......f11111bfbfbff.....
+        ......f1b1bdfcffff......
+        ......fbfbfcfcccf.......
+        ......ffffffffff........
+        .........ffffff.........
+        .........ffffff.........
+        .........fffffff..f.....
+        ..........fffffffff.....
+        ...........fffffff......
+        ........................
+        ........................
+        ........................
+        ........................
+        `,img`
+        ........................
+        ........................
+        ........................
+        ..........ffff..........
+        ........ff1111ff........
+        .......fb111111bf.......
+        .......f1111111dbf......
+        ......fd1111111ddf......
+        ......fd111111dddf......
+        ......fd111ddddddf......
+        ......fd111ddddddf......
+        ......fd1dddddddbf......
+        ......fd1dfbddbbff......
+        ......fbddfcdbbcf.......
+        .....ffffccddbfff.......
+        ....fcb1bbbfcffff.......
+        ....f1b1dcffffffff......
+        ....fdfdf..ffffffffff...
+        .....f.f.....ffffff.....
+        ........................
+        ........................
+        ........................
+        ........................
+        ........................
+        `],
+    500,
+    true
+    )
+    mySprite2.setVelocity(-75, 0)
+    mySprite2.setPosition(150, randint(5, 110))
+    mySprite2.setFlag(SpriteFlag.AutoDestroy, true)
+})
+
+```
+
+## Étape 16
+
+Glisse le bloc ``||scroller:quand le bouton A est appuyé ||`` (onglet ``||scroller:Contrôleur||``) dans la zone de programmation.
+
+Ajoute le bloc ``||variables:définir projectile||`` (onglet ``||Sprites:Sprites||``) dans le bloc ``||scroller:quand le bouton A est appuyé ||``.
+
+Assure-toi que la valeur à gauche ``||variables:définir projectile||`` est sélectionnée.
+
+Assure-toi que la valeur à droite ``||variables:mySprite||`` est sélectionnée.
+
+Clique sur le carré gris pour sélectionner un lutin dans la Galerie.
+
+```blocks
+
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    projectile = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . 4 4 . . . . . . . 
+        . . . . . . 4 5 5 4 . . . . . . 
+        . . . . . . 2 5 5 2 . . . . . . 
+        . . . . . . . 2 2 . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, mySprite, 50, 50)
+})
+	
+})
+    
+```
+
+## Étape 17
+
+Continue à modifier le bloc ``||variables:définir projectile||``.
+
+Remplace la valeur ``||sprites:50||`` de gauche par ``||sprites:125||``.
+
+Remplace la valeur ``||sprites:50||`` de droite par ``||sprites:0||``.
+
+```blocks
+
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    projectile = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . 4 4 . . . . . . . 
+        . . . . . . 4 5 5 4 . . . . . . 
+        . . . . . . 2 5 5 2 . . . . . . 
+        . . . . . . . 2 2 . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, mySprite, 125, 0)
+})
+    
+```
+
+## Étape 18
+
+Ajoute le bloc ``||animation:animer mySprite||`` (onglet ``||animation:Animation||`` dans Avancé) sous le bloc ``||variables:définir projectile||``.
+
+Sélectionne les valeurs ci-dessous :
+
+► ``||animation:animer||`` : ``||variables:projectile||``
+
+► ``||animation:trames||`` : appuie sur le carré vide pour ajouter une ressource et sélectionne l'animation correspondant à ton lutin dans l'onglet Galerie
+
+► ``||animation:intervalle (ms)||`` : 500 
+
+► ``||animation:en boucle||`` : activé
+
+```blocks
+
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    projectile = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . 4 4 . . . . . . . 
+        . . . . . . 4 5 5 4 . . . . . . 
+        . . . . . . 2 5 5 2 . . . . . . 
+        . . . . . . . 2 2 . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, mySprite, 125, 0)
+    animation.runImageAnimation(
+    projectile,
+    [img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . 4 4 . . . . . . . 
+        . . . . . . 4 5 5 4 . . . . . . 
+        . . . . . . 2 5 5 2 . . . . . . 
+        . . . . . . . 2 2 . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . 4 . . . . . 
+        . . . . 2 . . . . 4 4 . . . . . 
+        . . . . 2 4 . . 4 5 4 . . . . . 
+        . . . . . 2 4 d 5 5 4 . . . . . 
+        . . . . . 2 5 5 5 5 4 . . . . . 
+        . . . . . . 2 5 5 5 5 4 . . . . 
+        . . . . . . 2 5 4 2 4 4 . . . . 
+        . . . . . . 4 4 . . 2 4 4 . . . 
+        . . . . . 4 4 . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . 3 . . . . . . . . . . . 4 . . 
+        . 3 3 . . . . . . . . . 4 4 . . 
+        . 3 d 3 . . 4 4 . . 4 4 d 4 . . 
+        . . 3 5 3 4 5 5 4 4 d d 4 4 . . 
+        . . 3 d 5 d 1 1 d 5 5 d 4 4 . . 
+        . . 4 5 5 1 1 1 1 5 1 1 5 4 . . 
+        . 4 5 5 5 5 1 1 5 1 1 1 d 4 4 . 
+        . 4 d 5 1 1 5 5 5 1 1 1 5 5 4 . 
+        . 4 4 5 1 1 5 5 5 5 5 d 5 5 4 . 
+        . . 4 3 d 5 5 5 d 5 5 d d d 4 . 
+        . 4 5 5 d 5 5 5 d d d 5 5 4 . . 
+        . 4 5 5 d 3 5 d d 3 d 5 5 4 . . 
+        . 4 4 d d 4 d d d 4 3 d d 4 . . 
+        . . 4 5 4 4 4 4 4 4 4 4 4 . . . 
+        . 4 5 4 . . 4 4 4 . . . 4 4 . . 
+        . 4 4 . . . . . . . . . . 4 4 . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . b b . b b b . . . . . 
+        . . . . b 1 1 b 1 1 1 b . . . . 
+        . . b b 3 1 1 d d 1 d d b b . . 
+        . b 1 1 d d b b b b b 1 1 b . . 
+        . b 1 1 1 b . . . . . b d d b . 
+        . . 3 d d b . . . . . b d 1 1 b 
+        . b 1 d 3 . . . . . . . b 1 1 b 
+        . b 1 1 b . . . . . . b b 1 d b 
+        . b 1 d b . . . . . . b d 3 d b 
+        . b b d d b . . . . b d d d b . 
+        . b d d d d b . b b 3 d d 3 b . 
+        . . b d d 3 3 b d 3 3 b b b . . 
+        . . . b b b d d d d d b . . . . 
+        . . . . . . b b b b b . . . . . 
+        `],
+    500,
+    true
+    )
+})
+    
+```
+
+## Étape 19
+
+Voici la programmation complète du bloc ``||scroller:quand bouton A est appuyé||``.
+
+Observe bien l'indice et apporte les modifications nécessaires au besoin.
+
+```blocks
+
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    projectile = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . 4 4 . . . . . . . 
+        . . . . . . 4 5 5 4 . . . . . . 
+        . . . . . . 2 5 5 2 . . . . . . 
+        . . . . . . . 2 2 . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, mySprite, 125, 0)
+    animation.runImageAnimation(
+    projectile,
+    [img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . 4 4 . . . . . . . 
+        . . . . . . 4 5 5 4 . . . . . . 
+        . . . . . . 2 5 5 2 . . . . . . 
+        . . . . . . . 2 2 . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . 4 . . . . . 
+        . . . . 2 . . . . 4 4 . . . . . 
+        . . . . 2 4 . . 4 5 4 . . . . . 
+        . . . . . 2 4 d 5 5 4 . . . . . 
+        . . . . . 2 5 5 5 5 4 . . . . . 
+        . . . . . . 2 5 5 5 5 4 . . . . 
+        . . . . . . 2 5 4 2 4 4 . . . . 
+        . . . . . . 4 4 . . 2 4 4 . . . 
+        . . . . . 4 4 . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . 3 . . . . . . . . . . . 4 . . 
+        . 3 3 . . . . . . . . . 4 4 . . 
+        . 3 d 3 . . 4 4 . . 4 4 d 4 . . 
+        . . 3 5 3 4 5 5 4 4 d d 4 4 . . 
+        . . 3 d 5 d 1 1 d 5 5 d 4 4 . . 
+        . . 4 5 5 1 1 1 1 5 1 1 5 4 . . 
+        . 4 5 5 5 5 1 1 5 1 1 1 d 4 4 . 
+        . 4 d 5 1 1 5 5 5 1 1 1 5 5 4 . 
+        . 4 4 5 1 1 5 5 5 5 5 d 5 5 4 . 
+        . . 4 3 d 5 5 5 d 5 5 d d d 4 . 
+        . 4 5 5 d 5 5 5 d d d 5 5 4 . . 
+        . 4 5 5 d 3 5 d d 3 d 5 5 4 . . 
+        . 4 4 d d 4 d d d 4 3 d d 4 . . 
+        . . 4 5 4 4 4 4 4 4 4 4 4 . . . 
+        . 4 5 4 . . 4 4 4 . . . 4 4 . . 
+        . 4 4 . . . . . . . . . . 4 4 . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . b b . b b b . . . . . 
+        . . . . b 1 1 b 1 1 1 b . . . . 
+        . . b b 3 1 1 d d 1 d d b b . . 
+        . b 1 1 d d b b b b b 1 1 b . . 
+        . b 1 1 1 b . . . . . b d d b . 
+        . . 3 d d b . . . . . b d 1 1 b 
+        . b 1 d 3 . . . . . . . b 1 1 b 
+        . b 1 1 b . . . . . . b b 1 d b 
+        . b 1 d b . . . . . . b d 3 d b 
+        . b b d d b . . . . b d d d b . 
+        . b d d d d b . b b 3 d d 3 b . 
+        . . b d d 3 3 b d 3 3 b b b . . 
+        . . . b b b d d d d d b . . . . 
+        . . . . . . b b b b b . . . . . 
+        `],
+    500,
+    true
+    )
+})
+    
+```
+
+## Étape 20 
+
+Glisse le bloc ``||sprites:quand||`` (onglet ``||sprites:Sprites||``) dans la zone de programmation.
+
+Remplace la valeur ``||sprites:Player||`` de gauche par ``||sprites:Projectile||``.
+
+Remplace la valeur ``||sprites:Player||`` de droite par ``||sprites:Enemy||``.
+
+```blocks
+
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
+	
+})
+
+```
+
+## Étape 21
+
+Ajoute le bloc ``||sprites:destroy||`` (onglet ``||sprites:Sprites||``) dans le bloc ``||sprites:quand||``.
+
+Glisse le bloc ``||variables:otherSprite||`` dans le bloc ``||variables:mySprite||`` pour remplacer la valeur.
+
+Appuie sur le bouton ``||sprites:+||`` pour afficher plus d'options.
+
+Remplace les valeurs ``||sprites:spray||`` par ``||sprites:feu||``.
+
+La valeur ``||sprites:500||`` demeure la même.
+
+```blocks
+
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite, effects.fire, 500)
 })
 
 ```
