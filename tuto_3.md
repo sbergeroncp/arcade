@@ -290,7 +290,7 @@ mySprite2 = sprites.create(img`
 
 ## Étape 8
 
-Remplace les valeurs ``||Sprites:0||`` du bloc ``||Sprites:définir la position||`` par les blocs ``||math:sélection aléatoire||`` (onglet ``||math:Maths||``).
+Remplace les valeurs ``||Sprites:0||`` du bloc ``||Sprites:définir la position||`` par les blocs ``||math:choisir aléatoirement entre||`` (onglet ``||math:Maths||``).
 
 ```blocks
 
@@ -343,9 +343,9 @@ mySprite2 = sprites.create(img`
 
 ## Étape 9
 
-Modifie le bloc ``||math:sélection aléatoire||`` pour la valeur ``||Sprites:x||``:
+Modifie le bloc ``||math:choisir aléatoirement entre||`` pour la valeur ``||Sprites:x||``.
 
-Remplace la valeur ``||math:0||`` de gauche du bloc ``||math:sélection aléatoire||`` par le bloc ``||scene:largeur de l'écran||``.
+Remplace la valeur ``||math:10||`` du bloc ``||math:choisir aléatoirement entre||`` par le bloc ``||scene:largeur de l'écran||``.
 
 Regarde bien l'indice !
 
@@ -353,10 +353,10 @@ Regarde bien l'indice !
 
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
     info.changeScoreBy(1)
-    mySprite2.setPosition(randint(scene.screenWidth(), 10), randint(0, 10))
+    mySprite2.setPosition(randint(0, scene.screenWidth()), randint(0, 10))
 })
 let mySprite2: Sprite = null
-scene.setBackgroundColor(0)
+scene.setBackgroundColor(1)
 let mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
@@ -395,23 +395,25 @@ mySprite2 = sprites.create(img`
     . c c c c c c c . . . . . . . . 
     `, SpriteKind.Food)
 
+
 ```
 
 ## Étape 10
 
-Modifie le bloc ``||math:sélection aléatoire||`` pour la valeur ``||Sprites:y||``.
+Modifie le bloc ``||math:choisir aléatoirement entre||`` pour la valeur ``||Sprites:y||``.
 
-Remplace la valeur ``||math:0||`` de droite du bloc ``||math:sélection aléatoire||`` par le bloc ``||scene:hauteur de l'écran||``.
+Remplace la valeur ``||math:10||`` du bloc ``||math:choisir aléatoirement entre||`` par le bloc ``||scene:hauteur de l'écran||``.
 
 Regarde bien l'indice.
 
 ```blocks
+
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
     info.changeScoreBy(1)
-    mySprite2.setPosition(randint(scene.screenWidth(), 10), randint(0, scene.screenHeight()))
+    mySprite2.setPosition(randint(0, scene.screenWidth()), randint(0, scene.screenHeight()))
 })
 let mySprite2: Sprite = null
-scene.setBackgroundColor(0)
+scene.setBackgroundColor(1)
 let mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
@@ -463,11 +465,11 @@ Remplace la valeur ``||info:10||`` par ``||info:3||``.
 
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
     info.changeScoreBy(1)
-    mySprite2.setPosition(randint(scene.screenWidth(), 10), randint(0, scene.screenHeight()))
+    mySprite2.setPosition(randint(0, scene.screenWidth()), randint(0, scene.screenHeight()))
     info.startCountdown(3)
 })
 let mySprite2: Sprite = null
-scene.setBackgroundColor(9)
+scene.setBackgroundColor(1)
 let mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
@@ -505,6 +507,7 @@ mySprite2 = sprites.create(img`
     e e e 2 e e c e c c c . . . . . 
     . c c c c c c c . . . . . . . . 
     `, SpriteKind.Food)
+
 
 ```
 
