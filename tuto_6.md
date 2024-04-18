@@ -1548,7 +1548,7 @@ Clique sur le carré gris pour sélectionner un lutin dans la Galerie.
 
 Remplace la valeur ``||sprites:50||`` de gauche par ``||sprites:0||``.
 
-Remplace la valeur ``||sprites:50||`` de droite par ``||sprites:50||``.
+La valeur ``||sprites:50||`` de droite demeure la même.
 
 ```blocks
 
@@ -1699,7 +1699,7 @@ Clique sur le carré gris pour sélectionner un lutin dans la Galerie.
 
 La valeur ``||sprites:0||`` de gauche demeure la même.
 
-Remplace la valeur ``||sprites:50||`` de droite par ``||sprites:75||``.
+Remplace la valeur ``||sprites:50||`` par ``||sprites:75||``.
 
 ```blocks
 
@@ -1770,6 +1770,8 @@ game.onUpdateInterval(2500, function () {
 ```
 
 ## Étape 18
+
+Pour le bloc ``||sprites:définir le type||``:
 
 Remplace la valeur ``||variable:ennemi1||`` par ``||variable:ennemi2||``.
 
@@ -1935,11 +1937,11 @@ Remplace la valeur ``||sprites:Player||`` par la valeur ``||sprites:ennemi3||``.
 ```blocks
 
 namespace SpriteKind {
-    export const ennemi2 = SpriteKind.create()
+    export const ennemi3 = SpriteKind.create()
    }
-let ennemi2: Sprite = null
-game.onUpdateInterval(2500, function () {
-    ennemi2 = sprites.createProjectileFromSide(img`
+let ennemi3: Sprite = null
+game.onUpdateInterval(5000, function () {
+    ennemi3 = sprites.createProjectileFromSide(img`
         . . . . . . . . b b . . . . . . 
         . . . . . . . b 9 1 b . . . . . 
         . . b b . . . b 9 9 b . . . . . 
@@ -1955,9 +1957,9 @@ game.onUpdateInterval(2500, function () {
         . . . b 5 5 1 b . b 9 1 1 9 b . 
         . . . b 5 5 5 b . b 3 9 9 3 b . 
         . . . . b b b . . . b b b b . . 
-        . . . . . . . . . . . . . . . .
-        `, 0, 75)
-    ennemi2.x = randint(5, 155)
-    ennemi2.setKind(SpriteKind.ennemi2)
+        . . . . . . . . . . . . . . . . 
+        `, 0, 100)
+    ennemi3.x = randint(5, 155)
+    ennemi3.setKind(SpriteKind.ennemi3)
 })
 ```
