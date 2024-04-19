@@ -2238,7 +2238,7 @@ sprites.onOverlap(SpriteKind.ennemi2, SpriteKind.Player, function (sprite, other
 })
 ```
 
-## Étape 29
+## Étape 30
 
 Dupplique le premier bloc bloc ``||sprites:quand ||``.
 
@@ -2251,10 +2251,122 @@ Les autres valeurs demeurent les mêmes.
 namespace SpriteKind {
     export const ennemi3 = SpriteKind.create()
     }
-sprites.onOverlap(SpriteKind.ennemi2, SpriteKind.Player, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.ennemi3, SpriteKind.Player, function (sprite, otherSprite) {
     sprites.destroy(sprite, effects.halo, 200)
     scene.cameraShake(4, 500)
     info.changeLifeBy(-1)
     music.play(music.melodyPlayable(music.smallCrash), music.PlaybackMode.InBackground)
+})
+```
+
+## Étape 31
+
+Glisse le bloc ``||sprites:quand||`` (onglet ``||sprites:Sprites||``) dans la zone de programmation.
+
+Remplace la valeur ``||sprites:Player||`` de gauche par ``||sprites:projectile||``.
+
+Remplace la valeur ``||sprites:Player||`` de droite par ``||sprites:ennemi1||``.
+
+```blocks
+namespace SpriteKind {
+    export const ennemi1 = SpriteKind.create()
+    }
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.ennemi1, function (sprite, otherSprite) {
+})
+```
+
+## Étape 32
+
+Ajoute le bloc ``||sprites:destroy|`` (onglet ``||sprites:Sprites||``) dans le bloc ``||sprites:quand||``.
+
+Glisse le bloc  ``||variables:othersprite|``dans le bloc ``||variables:mySprite|`` pour remplacer la valeur.
+
+Appuie sur le bouton ``||sprites:+|`` pour afficher plus d'options.
+
+Remplace la valeur ``||sprites:spray|`` par ``||sprites:désintégration|``.
+
+Remplace la valeur ``||sprites:500|`` par ``||sprites:200|``
+
+```blocks
+namespace SpriteKind {
+    export const ennemi1 = SpriteKind.create()
+    }
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.ennemi1, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite, effects.disintegrate, 200)
+})
+```
+
+## Étape 33
+
+Ajoute le bloc ``||info:modifier le score|`` (onglet ``||info:Info||``) sous le bloc ``||sprites:destroy||``.
+
+La valeur ``||info:1|`` demeure la même.
+
+```blocks
+namespace SpriteKind {
+    export const ennemi1 = SpriteKind.create()
+    }
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.ennemi1, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite, effects.disintegrate, 200)
+    info.changeScoreBy(1)
+})
+```
+
+## Étape 34
+
+Ajoute le bloc ``||music:play jusqu'à la fin|`` (onglet ``||music:Musique||``) sous le bloc ``||info:modifier la vie||``.
+
+Remplace la valeur ``||music:sound ba ding|`` par ``||music:sound sound big crash|``.
+
+Remplace la valeur ``||music:jusqu'à la fin|`` par ``||music:in background|`` (trad. : en arrière-plan).
+
+```blocks
+namespace SpriteKind {
+    export const ennemi1 = SpriteKind.create()
+    }
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.ennemi1, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite, effects.disintegrate, 200)
+    info.changeScoreBy(1)
+    music.play(music.melodyPlayable(music.bigCrash), music.PlaybackMode.InBackground)
+})
+```
+
+## Étape 35
+
+Dupplique le premier bloc ``||sprites:quand ||``.
+
+Remplace la valeur ``||sprites:ennemi1||`` par ``||sprites:ennemi2||``.
+
+Remplace la valeur ``||info:1|`` par ``||info:2|``.
+
+```blocks
+
+namespace SpriteKind {
+    export const ennemi2 = SpriteKind.create()
+    }
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.ennemi2, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite, effects.disintegrate, 200)
+    info.changeScoreBy(2)
+    music.play(music.melodyPlayable(music.bigCrash), music.PlaybackMode.InBackground)
+})
+```
+
+## Étape 36
+
+Dupplique le premier bloc ``||sprites:quand ||``.
+
+Remplace la valeur ``||sprites:ennemi1||`` par ``||sprites:ennemi3||``.
+
+Remplace la valeur ``||info:1|`` par ``||info:3|``.
+
+```blocks
+
+namespace SpriteKind {
+    export const ennemi3 = SpriteKind.create()
+    }
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.ennemi3, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite, effects.disintegrate, 200)
+    info.changeScoreBy(3)
+    music.play(music.melodyPlayable(music.bigCrash), music.PlaybackMode.InBackground)
 })
 ```
