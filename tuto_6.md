@@ -411,7 +411,7 @@ Ajoute le bloc ``||variables:définir mySprite||`` (onglet ``||sprites:Sprites||
 
 Renomme la valeur ``||variables:mySprite||`` par ``||variables:vaisseau||``.
 
-Dessine un vaisseau spatial qui pointe vers le haut.
+Clique sur le carré gris et dessine un vaisseau spatial qui pointe vers le haut.
 
 Regarde l'indice au besoin.
 
@@ -1961,5 +1961,171 @@ game.onUpdateInterval(5000, function () {
         `, 0, 100)
     ennemi3.x = randint(5, 155)
     ennemi3.setKind(SpriteKind.ennemi3)
+})
+```
+
+## Étape 19
+
+Glisse le bloc ``||scroller:quand bouton A est pressé||`` (onglet ``||scroller:Contrôleur||``) dans la zone de programmation.
+
+Ajoute le bloc ``||variables:définir projectile||`` dans le bloc ``||scroller:quand bouton A est pressé||``.
+
+Clique sur le carré gris et dessine un missile qui pointe vers le haut.
+
+Regarde l'indice au besoin.
+
+```blocks
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    projectile = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . 5 . . . . . . . . 
+        . . . . . . . 5 . . . . . . . . 
+        . . . . . . 4 5 4 . . . . . . . 
+        . . . . . . 4 2 4 . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, mySprite, 50, 50)
+})
+```
+
+## Étape 20
+
+Continue à modifier le bloc ``||variables:définir projectile||``.
+
+Remplace la valeur ``||variables:mySprite||`` par ``||variables:vaisseau||``.
+
+Remplace la valeur ``||sprites:50||`` de gauche par ``||sprites:0||``.
+
+Remplace la valeur ``||sprites:50||`` de droite par ``||sprites:-150||``.
+
+```blocks
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    projectile = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . 5 . . . . . . . . 
+        . . . . . . . 5 . . . . . . . . 
+        . . . . . . 4 5 4 . . . . . . . 
+        . . . . . . 4 2 4 . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, vaissseau, 0, -150)
+})
+```
+
+## Étape 21
+
+Ajoute le bloc ``||music:play jusqu'à la fin|`` (onglet ``||music:Musique||``) sous le bloc ``||variables:définir projectile||``.
+
+Remplace la valeur ``||music:sound ba ding|`` par ``||music:sound zapper|``.
+
+Remplace la valeur ``||music:jusqu'à la fin|`` par ``||music:in background|`` (trad. : en arrière-plan).
+
+```blocks
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    projectile = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . 5 . . . . . . . . 
+        . . . . . . . 5 . . . . . . . . 
+        . . . . . . 4 5 4 . . . . . . . 
+        . . . . . . 4 2 4 . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, vaissseau, 0, -150)
+        music.play(music.melodyPlayable(music.zapped), music.PlaybackMode.InBackground)
+})
+```
+
+## Étape 22
+
+Dupplique le bloc ``||scroller:quand bouton A est pressé||``.
+
+Remplace la valeur ``||scroller:A||`` par ``||scroller:B||``.
+
+```blocks
+
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    projectile = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . 8 . . . . . . . . 
+        . . . . . . 8 8 8 . . . . . . . 
+        . . . . . 8 8 . 8 8 . . . . . . 
+        . . . . . 8 . 8 . 8 . . . . . . 
+        . . . . . . . 8 . . . . . . . . 
+        . . . . . . 7 8 7 . . . . . . . 
+        . . . . . . 7 1 7 . . . . . . . 
+        . . . . . . 7 . 7 . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . .
+        `, vaissseau, 0, -150)
+        music.play(music.melodyPlayable(music.zapped), music.PlaybackMode.InBackground)
+})
+```
+
+## Étape 23
+
+Modifie le contenu du bloc ``||scroller:quand bouton B est pressé||``.
+
+Clique sur le carré gris et dessine un missile qui pointe vers le haut.
+
+La valeur de ``||sprites:0||`` de gauche demeure la même.
+
+Remplace la valeur ``||sprites:-150||`` par ``||sprites:-75||``.
+
+Remplace la valeur ``||music:sound zapped||`` par ``||music:sound pew pew||``.
+
+```blocks
+
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    projectile = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . 8 . . . . . . . . 
+        . . . . . . 8 8 8 . . . . . . . 
+        . . . . . 8 8 . 8 8 . . . . . . 
+        . . . . . 8 . 8 . 8 . . . . . . 
+        . . . . . . . 8 . . . . . . . . 
+        . . . . . . 7 8 7 . . . . . . . 
+        . . . . . . 7 1 7 . . . . . . . 
+        . . . . . . 7 . 7 . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . .
+        `, vaissseau, 0, -75)
+        music.play(music.melodyPlayable(music.pewPew), music.PlaybackMode.InBackground)
 })
 ```
