@@ -2129,3 +2129,132 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
         music.play(music.melodyPlayable(music.pewPew), music.PlaybackMode.InBackground)
 })
 ```
+
+## Étape 24
+
+Glisse le bloc ``||sprites:quand||`` (onglet ``||sprites:Sprites||``) dans la zone de programmation.
+
+Remplace la valeur ``||sprites:Player||`` par ``||sprites:ennemi1||``.
+
+```blocks
+namespace SpriteKind {
+    export const ennemi1 = SpriteKind.create()
+    }
+    sprites.onOverlap(SpriteKind.ennemi1, SpriteKind.Player, function (sprite, otherSprite) {
+})
+```
+
+## Étape 25
+
+Ajoute le bloc ``||sprites:destroy|`` (onglet ``||sprites:Sprites||``) dans le bloc ``||sprites:quand||``.
+
+Glisse le bloc  ``||variables:sprite|``dans le bloc ``||variables:mySprite|`` pour remplacer la valeur.
+
+Appuie sur le bouton ``||sprites:+|`` pour afficher plus d'options.
+
+Remplace la valeur ``||sprites:spray|`` par ``||sprites:halo|``.
+
+Remplace la valeur ``||sprites:500|`` par ``||sprites:200|``
+
+```blocks
+namespace SpriteKind {
+    export const ennemi1 = SpriteKind.create()
+    }
+sprites.onOverlap(SpriteKind.ennemi1, SpriteKind.Player, function (sprite, otherSprite) {
+    sprites.destroy(sprite, effects.halo, 200)
+})
+```
+
+## Étape 26
+
+Ajoute le bloc ``||scene:secouer la caméra|`` (onglet ``||scene:Scène||``) sous le bloc ``||sprites:destroy||``.
+
+Les valeurs ``||scene:4|`` et ``||scene:500|`` demeurent les mêmes.
+
+```blocks
+namespace SpriteKind {
+    export const ennemi1 = SpriteKind.create()
+    }
+sprites.onOverlap(SpriteKind.ennemi1, SpriteKind.Player, function (sprite, otherSprite) {
+    sprites.destroy(sprite, effects.halo, 200)
+    scene.cameraShake(4, 500)
+```
+
+## Étape 27
+
+Ajoute le bloc ``||info:modifier la vie|`` (onglet ``||info:Info||``) sous le bloc ``||scene:secouer la caméra||``.
+
+La valeur ``||info:-1|`` demeure la même.
+
+```blocks
+namespace SpriteKind {
+    export const ennemi1 = SpriteKind.create()
+    }
+sprites.onOverlap(SpriteKind.ennemi1, SpriteKind.Player, function (sprite, otherSprite) {
+    sprites.destroy(sprite, effects.halo, 200)
+    scene.cameraShake(4, 500)
+    info.changeLifeBy(-1)
+})
+```
+
+## Étape 28
+
+Ajoute le bloc ``||music:play jusqu'à la fin|`` (onglet ``||music:Musique||``) sous le bloc ``||info:modifier la vie||``.
+
+Remplace la valeur ``||music:sound ba ding|`` par ``||music:sound small crash|``.
+
+Remplace la valeur ``||music:jusqu'à la fin|`` par ``||music:in background|`` (trad. : en arrière-plan).
+
+```blocks
+namespace SpriteKind {
+    export const ennemi1 = SpriteKind.create()
+    }
+sprites.onOverlap(SpriteKind.ennemi1, SpriteKind.Player, function (sprite, otherSprite) {
+    sprites.destroy(sprite, effects.halo, 200)
+    scene.cameraShake(4, 500)
+    info.changeLifeBy(-1)
+    music.play(music.melodyPlayable(music.smallCrash), music.PlaybackMode.InBackground)
+})
+```
+
+## Étape 29
+
+Dupplique le bloc ``||sprites:quand ||``.
+
+Remplace la valeur ``||sprites:ennemi1||`` par ``||sprites:ennemi2||``.
+
+Les autres valeurs demeurent les mêmes.
+
+```blocks
+
+namespace SpriteKind {
+    export const ennemi2 = SpriteKind.create()
+    }
+sprites.onOverlap(SpriteKind.ennemi2, SpriteKind.Player, function (sprite, otherSprite) {
+    sprites.destroy(sprite, effects.halo, 200)
+    scene.cameraShake(4, 500)
+    info.changeLifeBy(-1)
+    music.play(music.melodyPlayable(music.smallCrash), music.PlaybackMode.InBackground)
+})
+```
+
+## Étape 29
+
+Dupplique le premier bloc bloc ``||sprites:quand ||``.
+
+Remplace la valeur ``||sprites:ennemi1||`` par ``||sprites:ennemi3||``.
+
+Les autres valeurs demeurent les mêmes.
+
+```blocks
+
+namespace SpriteKind {
+    export const ennemi3 = SpriteKind.create()
+    }
+sprites.onOverlap(SpriteKind.ennemi2, SpriteKind.Player, function (sprite, otherSprite) {
+    sprites.destroy(sprite, effects.halo, 200)
+    scene.cameraShake(4, 500)
+    info.changeLifeBy(-1)
+    music.play(music.melodyPlayable(music.smallCrash), music.PlaybackMode.InBackground)
+})
+```
